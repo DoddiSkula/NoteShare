@@ -11,7 +11,7 @@ import java.util.List;
 public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Course course;
@@ -36,11 +36,11 @@ public class File {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
-    public void setID(long Id) {
-        this.Id = Id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Date getDate() {
@@ -81,5 +81,13 @@ public class File {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

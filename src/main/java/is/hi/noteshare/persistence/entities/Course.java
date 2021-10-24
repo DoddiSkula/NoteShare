@@ -56,4 +56,13 @@ public class Course {
     public void setSchool(School school) {
         this.school = school;
     }
+
+    public List<Course> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<Course> files) {
+        this.files = files;
+    }
+
 }

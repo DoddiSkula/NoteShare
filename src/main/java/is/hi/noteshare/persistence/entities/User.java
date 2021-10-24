@@ -9,7 +9,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     private String username;
     private String password;
@@ -33,5 +33,67 @@ public class User {
         this.courses = courses;
     }
 
-    //vantar meira her
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getSchoolid() {
+        return schoolid;
+    }
+
+    public void setSchoolid(int schoolid) {
+        this.schoolid = schoolid;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public int[] getCourses() {
+        return courses;
+    }
+
+    public void setCourses(int[] courses) {
+        this.courses = courses;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }
