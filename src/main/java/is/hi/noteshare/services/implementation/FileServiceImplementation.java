@@ -20,7 +20,7 @@ public class FileServiceImplementation implements FileService{
 
     @Override
     public List<File> findByName(String name){
-        return fileRepository.findByName.get(0);
+        return fileRepository.findByName(name).get(0);
     }
 
     @Override
