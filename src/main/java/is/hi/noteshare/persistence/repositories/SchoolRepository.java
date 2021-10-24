@@ -9,9 +9,10 @@ public interface SchoolRepository extends JpaRepository<School,Long> {
     School save(School school);
     void delete(School school);
 
-    School findByName(String name);
+
     School findOne(long id);
 
+    List<School> findByName(String name);
     List<School> findAll();
     List<School> findAllReverseOrder();
 

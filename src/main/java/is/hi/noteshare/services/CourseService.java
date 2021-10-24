@@ -6,7 +6,7 @@ import is.hi.noteshare.persistence.entities.Course;
 import java.util.List;
 
 public interface CourseService {
-    Course findByName(String name);
+    List<Course> findByName(String name);
     List<Course> findAll();
     List<Course> findAllReverseOrder();
     Course findOne(long id);

@@ -19,7 +19,7 @@ public class SchoolServiceImplementation implements SchoolService{
     }
 
     @Override
-    public School findByName(String name){
+    public List<School> findByName(String name){
         return schoolRepository.findByName(name).get(0);
     }
 
