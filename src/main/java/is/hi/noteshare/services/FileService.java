@@ -5,7 +5,7 @@ import is.hi.noteshare.persistence.entities.File;
 import java.util.List;
 
 public interface FileService {
-    List<File> findByName(File file);
+    List<File> findByName(String name);
     List<File> findAll();
     List<File> findAllReverseOrder();
     List<File> findAllDateOrder();

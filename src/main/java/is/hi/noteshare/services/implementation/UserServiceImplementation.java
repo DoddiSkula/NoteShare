@@ -4,7 +4,7 @@ import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.persistence.repositories.UserRepository;
 import is.hi.noteshare.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<User> findByName(String name){
-        return userRepository.findByName(name).get(0);
+        return userRepository.findByName(name);
     }
 
     @Override

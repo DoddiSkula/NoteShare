@@ -20,7 +20,7 @@ public class FileServiceImplementation implements FileService{
 
     @Override
     public List<File> findByName(String name){
-        return fileRepository.findByName(name).get(0);
+        return fileRepository.findByName(name);
     }
 
     @Override
@@ -30,6 +30,11 @@ public class FileServiceImplementation implements FileService{
 
     @Override
     public List<File> findAllReverseOrder(){
+        return fileRepository.findAllReverseOrder();
+    }
+
+    @Override
+    public List<File> findAllDateOrder(){
         return fileRepository.findAllReverseOrder();
     }
 

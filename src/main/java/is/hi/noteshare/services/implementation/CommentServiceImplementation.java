@@ -20,7 +20,7 @@ public class CommentServiceImplementation implements CommentService{
 
     @Override
     public List<Comment> findByName(String name){
-        return commentRepository.findByName(name).get(0);
+        return commentRepository.findByName(name);
     }
 
     @Override

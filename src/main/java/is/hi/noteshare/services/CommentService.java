@@ -5,7 +5,7 @@ import is.hi.noteshare.persistence.entities.Comment;
 import java.util.List;
 
 public interface CommentService {
-    List<Comment> findByName(Comment comment);
+    List<Comment> findByName(String name);
     List<Comment> findAll();
     List<Comment> findAllReverseOrder();
     Comment findOne(long id);

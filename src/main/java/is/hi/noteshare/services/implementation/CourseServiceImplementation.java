@@ -20,7 +20,7 @@ public class CourseServiceImplementation implements CourseService {
 
     @Override
     public List<Course> findByName(String name) {
-        return courseRepository.findByName(name).get(0);
+        return courseRepository.findByName(name);
     }
 
     @Override

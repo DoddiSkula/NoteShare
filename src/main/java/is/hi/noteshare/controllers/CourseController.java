@@ -15,14 +15,15 @@ public class CourseController {
     CourseService courseService;
 
     @Autowired
-    public CourseController(CourseService courseService){
+    public CourseController(CourseService courseService) {
         this.courseService = courseService;
     }
 
     @RequestMapping(value = "/course/{id}", method = RequestMethod.GET)
-    public String courseGET(@PathVariable("id") long id, Model model){
-        Course course = courseService.findByID(id);
-        model.addAttribute("course", course);
+    public String courseGET(@PathVariable("id") long id, Model model) {
+        // Course course = courseService.findByID(id);
+        // model.addAttribute("course", course);
         return "course";
     }
 
+}
