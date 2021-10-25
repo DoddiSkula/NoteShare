@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #404040;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+p {
+    color: #4B4B4B;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer {
+    background-color: #4F4F4F;
+    width: 100%;
+    height: 80px;
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.container {
+    max-width: 880px;
+    margin: auto;
+}
+
+.logo {
+    margin-left: 3rem;
+    font-size: 1.25rem;
+}
+
+.login {
+    margin-right: 3rem;
+}
+
+.splash-page {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.splash-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.splash-button-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-button {
+    width: 230px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, #EA86FB, #2ED3FF, #2AC0E8, #EA86FB);
+    border-radius: 2rem;
+    color: #FFFFFF;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.splash-button:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.splash-button:focus {
+    outline: none;
+}
