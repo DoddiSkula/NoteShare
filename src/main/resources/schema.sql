@@ -32,6 +32,8 @@ CREATE TABLE files (
     title varchar(255),
     date date,
     description text,
+    likes int,
+    file_name varchar(255),
     source varchar(2555)
 );
 
@@ -40,7 +42,8 @@ CREATE TABLE comments (
     id serial primary key,
     file_id bigint references files(id),
     user_id bigint references users(id),
-    comment text
+    comment text,
+    likes int
 );
 
 -- Tengitöflur
@@ -49,5 +52,11 @@ DROP TABLE IF EXISTS user_courses CASCADE;
 CREATE TABLE user_courses (
     user_id bigint references users(id),
     course_id bigint references courses(id)
+);
+
+DROP TABLE IF EXISTS user_likes CASCADE;
+CREATE TABLE user_likes (
+    user_id bigint references users(id),
+    file_id bigint references files(id)
 );
 
