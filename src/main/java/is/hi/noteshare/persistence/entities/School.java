@@ -1,30 +1,28 @@
 package is.hi.noteshare.persistence.entities;
 
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Entity
-//@Table(name ="schools")
+@Table(name ="schools")
 public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
-
-    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy ="school", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Course> courses = new ArrayList<>();
 
-    public School(){
+    private String name;
+    private String level;
 
-    }
+    public School(){}
 
-    public School(String name){
+    public School(String name, String level){
         this.name = name;
+        this.level = level;
     }
 
     public String getName() {
@@ -33,6 +31,14 @@ public class School {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level){
+        this.level = level;
     }
 
     public long getId() {
@@ -50,4 +56,5 @@ public class School {
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
+
 }

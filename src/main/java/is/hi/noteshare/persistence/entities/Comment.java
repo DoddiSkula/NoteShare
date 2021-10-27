@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-//@Table(name = "comments")
+@Table(name = "comments")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,16 +13,14 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY)
     private File file;
 
-    @ManyToOne(fetch =FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     private Date date;
     private int userid;
     private String text;
 
-    public Comment(){
-
-    }
+    public Comment() {}
 
     public Comment(File file, User user, Date date, int userid, String text){
         this.file = file;

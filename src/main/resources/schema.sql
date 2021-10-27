@@ -1,4 +1,4 @@
--- NoteShare gagnagrunnur
+-- NoteShare database
 
 DROP TABLE IF EXISTS schools CASCADE;
 CREATE TABLE schools (
@@ -14,7 +14,7 @@ CREATE TABLE users (
     username varchar(30) unique not null,
     password varchar(50) not null,
     email varchar(70) unique not null,
-    isAdmin bool
+    admin bool
 );
 
 DROP TABLE IF EXISTS courses CASCADE;
@@ -46,7 +46,7 @@ CREATE TABLE comments (
     likes int
 );
 
--- Tengitöflur
+-- relationship tables
 
 DROP TABLE IF EXISTS user_courses CASCADE;
 CREATE TABLE user_courses (
@@ -59,4 +59,3 @@ CREATE TABLE user_likes (
     user_id bigint references users(id),
     file_id bigint references files(id)
 );
-

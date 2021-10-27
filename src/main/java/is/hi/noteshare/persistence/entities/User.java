@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@Table(name = "users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,24 +13,24 @@ public class User {
 
     private String username;
     private String password;
-    private int schoolid;
+    private int school_id;
     private String email;
-    private boolean isAdmin;
-    private int[] courses;
+    private boolean admin;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Comment> comments = new ArrayList<>();
 
-    public User() {
-    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Course> courses = new ArrayList<>();
 
-    public User(String username, String password, int schoolid, String email, boolean isAdmin, int[] courses){
+    public User() {}
+
+    public User(String username, String password, int school_id, String email, boolean admin){
         this.username = username;
         this.password = password;
-        this.schoolid = schoolid;
+        this.school_id = school_id;
         this.email = email;
-        this.isAdmin = isAdmin;
-        this.courses = courses;
+        this.admin = admin;
     }
 
     public long getId() {
@@ -58,11 +58,11 @@ public class User {
     }
 
     public int getSchoolid() {
-        return schoolid;
+        return school_id;
     }
 
-    public void setSchoolid(int schoolid) {
-        this.schoolid = schoolid;
+    public void setSchoolid(int school_id) {
+        this.school_id = school_id;
     }
 
     public String getEmail() {
@@ -74,18 +74,18 @@ public class User {
     }
 
     public boolean isAdmin() {
-        return isAdmin;
+        return admin;
     }
 
     public void setAdmin(boolean admin) {
-        isAdmin = admin;
+        this.admin = admin;
     }
 
-    public int[] getCourses() {
+    public List<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(int[] courses) {
+    public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
 

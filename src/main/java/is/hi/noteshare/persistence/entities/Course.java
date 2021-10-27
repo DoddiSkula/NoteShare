@@ -5,28 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@Table(name = "courses")
+@Table(name = "courses")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private School school;
-
     private String shortName;
     private String longName;
 
-    /*
+    @ManyToOne(fetch = FetchType.LAZY)
+    private School school;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Course> files = new ArrayList<>();
-    */
+    private List<File> files = new ArrayList<>();
 
-    public Course(String shortName, String longName) {
-        this.shortName = shortName;
-        this.longName = longName;
-    }
-
+    public Course() {}
 
     public long getId(){
         return id;
@@ -60,13 +57,12 @@ public class Course {
         this.school = school;
     }
 
-    /*
-    public List<Course> getFiles() {
+    public List<File> getFiles() {
         return files;
     }
 
-    public void setFiles(List<Course> files) {
+    public void setFiles(List<File> files) {
         this.files = files;
     }
-    */
+
 }
