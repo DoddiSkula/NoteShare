@@ -6,7 +6,6 @@ import is.hi.noteshare.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,8 +18,8 @@ public class CommentServiceImplementation implements CommentService{
     }
 
     @Override
-    public List<Comment> findByName(String name){
-        return commentRepository.findByName(name);
+    public List<Comment> findById(long id){
+        return commentRepository.findById(id);
     }
 
     @Override
@@ -28,15 +27,6 @@ public class CommentServiceImplementation implements CommentService{
         return commentRepository.findAll();
     }
 
-    @Override
-    public List<Comment> findAllReverseOrder(){
-        return commentRepository.findAllReverseOrder();
-    }
-
-    @Override
-    public Comment findOne(long id){
-        return commentRepository.findOne(id);
-    }
 
     @Override
     public Comment save(Comment comment) {

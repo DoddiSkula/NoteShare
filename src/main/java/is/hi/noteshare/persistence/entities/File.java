@@ -6,8 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "files")
-
+// @Table(name = "files")
 public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +18,7 @@ public class File {
     private Date date;
     private String title;
     private String description;
-    private User user;
+    //private User user;
 
     @OneToMany(mappedBy = "file", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
@@ -32,7 +31,7 @@ public class File {
         this.date = date;
         this.title = title;
         this.description = description;
-        this.user = user;
+        //this.user = user;
     }
 
     public long getId() {
@@ -67,6 +66,7 @@ public class File {
         this.description = description;
     }
 
+    /*
     public User getUser() {
         return user;
     }
@@ -74,6 +74,7 @@ public class File {
     public void setUser(User user) {
         this.user = user;
     }
+    */
 
     public Course getCourse() {
         return course;

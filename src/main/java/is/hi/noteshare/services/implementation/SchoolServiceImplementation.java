@@ -29,16 +29,6 @@ public class SchoolServiceImplementation implements SchoolService{
     }
 
     @Override
-    public List<School> findAllReverseOrder(){
-        return schoolRepository.findAllReverseOrder();
-    }
-
-    @Override
-    public School findOne(long id){
-        return schoolRepository.findOne(id);
-    }
-
-    @Override
     public School save(School school){
         return schoolRepository.save(school);
     }

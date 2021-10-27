@@ -8,10 +8,6 @@ import java.util.List;
 public interface CourseRepository extends JpaRepository<Course, Long>{
     Course save(Course course);
     void delete(Course course);
-
-    Course findOne(long id);
-
-    List<Course> findByName(String name);
+    List<Course> findByShortName(String name);
     List<Course> findAll();
-    List<Course> findAllReverseOrder();
 }

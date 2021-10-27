@@ -44,12 +44,14 @@ public class SchoolController {
     }
 
 
-
+    /*
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public String deleteSchool(@PathVariable("id") long id, Model model){
         School schoolToDelete = schoolService.findOne(id);
         schoolService.delete(schoolToDelete);
         return "redirect:/";
     }
+
+     */
 
 }

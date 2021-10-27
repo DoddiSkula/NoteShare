@@ -6,7 +6,6 @@ import is.hi.noteshare.services.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,28 +18,11 @@ public class FileServiceImplementation implements FileService{
     }
 
     @Override
-    public List<File> findByName(String name){
-        return fileRepository.findByName(name);
-    }
+    public List<File> findById(long id){ return fileRepository.findById(id); }
 
     @Override
     public List<File> findAll(){
         return fileRepository.findAll();
-    }
-
-    @Override
-    public List<File> findAllReverseOrder(){
-        return fileRepository.findAllReverseOrder();
-    }
-
-    @Override
-    public List<File> findAllDateOrder(){
-        return fileRepository.findAllReverseOrder();
-    }
-
-    @Override
-    public File findOne(long id ){
-        return fileRepository.findOne(id);
     }
 
     @Override

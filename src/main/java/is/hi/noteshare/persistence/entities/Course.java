@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "courses")
+//@Table(name = "courses")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,13 +17,16 @@ public class Course {
     private String shortName;
     private String longName;
 
+    /*
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Course> files = new ArrayList<>();
+    */
 
     public Course(String shortName, String longName) {
         this.shortName = shortName;
         this.longName = longName;
     }
+
 
     public long getId(){
         return id;
@@ -57,6 +60,7 @@ public class Course {
         this.school = school;
     }
 
+    /*
     public List<Course> getFiles() {
         return files;
     }
@@ -64,5 +68,5 @@ public class Course {
     public void setFiles(List<Course> files) {
         this.files = files;
     }
-
+    */
 }

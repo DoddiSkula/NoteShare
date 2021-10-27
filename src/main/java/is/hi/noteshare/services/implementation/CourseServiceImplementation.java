@@ -6,7 +6,6 @@ import is.hi.noteshare.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,23 +18,13 @@ public class CourseServiceImplementation implements CourseService {
     }
 
     @Override
-    public List<Course> findByName(String name) {
-        return courseRepository.findByName(name);
+    public List<Course> findByShortName(String name) {
+        return courseRepository.findByShortName(name);
     }
 
     @Override
     public List<Course> findAll(){
         return courseRepository.findAll();
-    }
-
-    @Override
-    public List<Course> findAllReverseOrder(){
-        return courseRepository.findAllReverseOrder();
-    }
-
-    @Override
-    public Course findOne(long id) {
-        return courseRepository.findOne(id);
     }
 
     @Override
