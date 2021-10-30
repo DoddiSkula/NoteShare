@@ -36,4 +36,9 @@ public class UserServiceImplementation implements UserService {
     public void delete(User user){
         userRepository.delete(user);
     }
+
+    @Override
+    public User login(User user) {
+        return null;
+    }
 }

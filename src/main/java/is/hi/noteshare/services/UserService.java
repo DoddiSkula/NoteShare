@@ -9,4 +9,5 @@ public interface UserService {
     List<User> findAll();
     User save(User user);
     void delete(User user);
+    User login(User user);
 }
