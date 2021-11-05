@@ -21,37 +21,4 @@ public class SchoolController {
         this.schoolService = schoolService;
     }
 
-    @RequestMapping("/")
-    public String homePage(Model model){
-        List<School> allSchools = schoolService.findAll();
-
-        model.addAttribute("schools", allSchools);
-        return "home";
-    }
-
-    @RequestMapping(value ="/addschool", method = RequestMethod.GET)
-    public String addSchoolGET(School school){
-        return "newSchool";
-    }
-
-    @RequestMapping(value= "/addschool", method = RequestMethod.POST)
-    public String addSchoolPOST(School school, BindingResult result, Model model){
-        if(result.hasErrors()){
-            return "newSchool";
-        }
-        schoolService.save(school);
-        return "redirect:/";
-    }
-
-
-    /*
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-    public String deleteSchool(@PathVariable("id") long id, Model model){
-        School schoolToDelete = schoolService.findOne(id);
-        schoolService.delete(schoolToDelete);
-        return "redirect:/";
-    }
-
-     */
-
 }

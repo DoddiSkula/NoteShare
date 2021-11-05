@@ -5,21 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "courses")
+@Table(name = "courses", schema = "public")
 public class Course {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
 
+    @Column(name = "short_name")
     private String shortName;
+
+    @Column(name = "name")
     private String longName;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "school_id")
     private School school;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
-
+    // breyta þessu
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<File> files = new ArrayList<>();
 
