@@ -1,0 +1,14 @@
+<!-- Course list -->
+<div th:fragment="courseList">
+    <form>
+        <label for="university">University</label>
+        <select name="university" id="university">
+            <option th:each="school : ${schools}" th:value="${school.getName()}" th:text="${school.getName()}"></option>
+        </select>
+    </form>
+    <div>
+        <div th:each="course: ${courses}">
+            <div th:replace="fragments/coursecard :: coursecard"></div>
+        </div>
+    </div>
+</div>

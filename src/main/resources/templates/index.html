@@ -33,7 +33,7 @@
             </div>
             <div class="splash-about">
                 <div class="container">
-                    <h2>What is NoteShare?</h2>
+                    <h2>What is Note<span style="color: #0BA4CD; font-weight: 700">Share</span>?</h2>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nam sit amet ligula sapien. Aliquam ac venenatis felis,
@@ -41,6 +41,13 @@
                         Maecenas sodales elementum dolor, vitae scelerisque risus sodales a.
                     </p>
                     <a href="#">Read more</a>
+                </div>
+            </div>
+            <div class="all-courses">
+                <div class="container">
+                    <h2><span style="font-weight: 700">All</span> courses</h2>
+                    <!-- Course list -->
+                    <div th:replace="fragments/courseList :: courseList"></div>
                 </div>
             </div>
         </div>

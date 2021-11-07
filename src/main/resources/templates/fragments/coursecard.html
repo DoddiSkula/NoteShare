@@ -1,0 +1,7 @@
+<div th:fragment="coursecard">
+    <p th:text="${course.shortName}"></p>
+    <p th:text="${course.longName}"></p>
+    <p th:text="${course.school.name}"></p>
+    <a th:href="@{/course/{id}(id=${course.id})}">View course</a>
+    <hr/>
+</div>

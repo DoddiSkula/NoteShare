@@ -81,7 +81,7 @@ a {
 
 .footer a {
     color: #F5F5F5;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 .footer img {
@@ -96,21 +96,20 @@ a {
 /* Splash page */
 
 .splash-img {
-    background-image: url("../img/group-study.svg");
-    background-size: 665px 419px;
+    background-image: url("../img/outdoor-study.svg");
+    background-size: 565px 319px;
     background-repeat: no-repeat;
-    background-attachment: scroll;
     background-position: 75% 50%;
 }
 
 .splash-page {
-    height: 50vh;
+    height: 60vh;
     display: flex;
     align-items: center;
 }
 
 .splash-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 2rem;
 }
 
@@ -151,7 +150,7 @@ a {
 }
 
 .splash-about {
-    height: 25vh;
+    height: 30vh;
     background-color: #EEEEEE;
     display: flex;
     flex-direction: column;
@@ -159,5 +158,14 @@ a {
 }
 
 .splash-about p {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.splash-about a:hover {
+    color: #EA86FB;
+}
+
+.all-courses {
+    padding-top: 2rem;
+    background: #F5F5F5
 }

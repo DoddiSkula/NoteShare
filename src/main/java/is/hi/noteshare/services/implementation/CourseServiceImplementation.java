@@ -23,7 +23,7 @@ public class CourseServiceImplementation implements CourseService {
     }
 
     @Override
-    public List<Course> findById(long id) { return courseRepository.findById(id); }
+    public Course findById(long id) { return courseRepository.findById(id); }
 
     @Override
     public List<Course> findAll(){

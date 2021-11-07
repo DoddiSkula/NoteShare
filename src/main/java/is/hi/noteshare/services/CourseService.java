@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CourseService {
     List<Course> findByShortName(String name);
-    List<Course> findById(long id);
+    Course findById(long id);
     List<Course> findAll();
     Course save(Course Course);
     void delete(Course course);

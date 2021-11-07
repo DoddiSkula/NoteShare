@@ -23,7 +23,7 @@ public class CourseController {
 
     @RequestMapping(value = "/course/{id}", method = RequestMethod.GET)
     public String courseGET(@PathVariable("id") long id, Model model) {
-        List<Course> course = courseService.findById(id);
+        Course course = courseService.findById(id);
         model.addAttribute("course", course);
         return "course";
     }
