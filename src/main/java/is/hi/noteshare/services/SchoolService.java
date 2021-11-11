@@ -9,4 +9,6 @@ public interface SchoolService {
     List<School> findAll();
     School save(School school);
     void delete(School school);
+    List<String> findAllSubjects();
+    List<String> findAllDegrees();
 }

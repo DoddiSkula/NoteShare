@@ -31,7 +31,7 @@ a {
 }
 
 .content {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .container {
@@ -46,6 +46,7 @@ a {
 /* Header */
 
 .navbar {
+    background: #FFFFFF;
     position: fixed;
     top: 0;
     width: 100%;
@@ -75,18 +76,15 @@ a {
     justify-content: space-between;
 }
 
-.footer p {
-    color: #F5F5F5;
-}
-
 .footer a {
-    color: #F5F5F5;
+    color: #DDDDDD;
     margin-right: 2rem;
+    font-size: 1rem;
 }
 
 .footer img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 .footer img:hover {
@@ -155,6 +153,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .splash-about p {
@@ -168,4 +168,72 @@ a {
 .all-courses {
     padding-top: 2rem;
     background: #F5F5F5
+}
+
+/* Course List */
+.filter {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter label {
+    margin-right: 0.5rem;
+}
+
+.filter select {
+    width: 175px;
+    height: 35px;
+    background-color: #E8E8E8;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search {
+    width: 880px;
+    height: 40px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+@media (max-width: 880px) {
+    .container {
+        margin-right: 2rem;
+        margin-left: 2rem;
+    }
+
+    .splash-page {
+        justify-content: center;
+    }
+
+    .splash-img {
+        background: #FFFFFF;
+    }
+
+    .splash-about {
+        height: 40vh;
+    }
+
+    .social-media {
+        display: none;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .filter {
+        flex-direction: column;
+    }
+
+    .filter select {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
 }

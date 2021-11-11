@@ -21,6 +21,7 @@ DROP TABLE IF EXISTS courses CASCADE;
 CREATE TABLE courses (
     id serial primary key,
     school_id bigint references schools(id),
+    degree_id bigint references degrees(id),
     short_name varchar(20),
     name varchar(255)
 );
@@ -46,8 +47,19 @@ CREATE TABLE comments (
     likes int
 );
 
--- relationship tables
+DROP TABLE IF EXISTS subjects CASCADE;
+CREATE TABLE subjects (
+    id serial primary key,
+    subject varchar(255)
+);
 
+DROP TABLE IF EXISTS degrees CASCADE;
+CREATE TABLE degrees (
+    id serial primary key,
+    degree varchar(12)
+);
+
+-- join tables
 DROP TABLE IF EXISTS user_courses CASCADE;
 CREATE TABLE user_courses (
     user_id bigint references users(id),

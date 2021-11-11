@@ -37,4 +37,11 @@ public class SchoolServiceImplementation implements SchoolService{
     public void delete(School school){
         schoolRepository.delete(school);
     }
+
+    @Override
+    public List<String> findAllSubjects() { return schoolRepository.findAllSubjects(); }
+
+    @Override
+    public List<String> findAllDegrees() { return schoolRepository.findAllDegrees(); }
+
 }

@@ -1,14 +1,40 @@
 <!-- Course list -->
 <div th:fragment="courseList">
-    <form>
-        <label for="university">University</label>
-        <select name="university" id="university">
-            <option th:each="school : ${schools}" th:value="${school.getName()}" th:text="${school.getName()}"></option>
-        </select>
-    </form>
-    <div>
-        <div th:each="course: ${courses}">
-            <div th:replace="fragments/coursecard :: coursecard"></div>
+    <form id="filter" th:action="@{/search}" method="post">
+        <div class="filter" >
+            <div>
+                <label for="university">University</label>
+                <select name="university" id="university">
+                    <option value="">Any</option>
+                    <option th:each="school : ${schools}" th:value="${school.getName()}" th:text="${school.getName()}"></option>
+                </select>
+            </div>
+            <div>
+                <label for="subject">Subject</label>
+                <select name="subject" id="subject">
+                    <option value="">Any</option>
+                    <option th:each="subject : ${subjects}" th:value="${subject}" th:text="${subject}"></option>
+                </select>
+            </div>
+            <div>
+                <label for="degree">Degree</label>
+                <select name="degree" id="degree">
+                    <option value="">Any</option>
+                    <option th:each="degree : ${degrees}" th:value="${degree}" th:text="${degree}"></option>
+                </select>
+            </div>
         </div>
+        <input class="search" type="text" id="search" name="search" placeholder="Search" autocomplete="off">
+    </form>
+
+    <div>
+
+        <div th:each="course: ${courses}">
+            <a th:href="@{/course/{id}(id=${course.id})}">
+                <div th:replace="fragments/coursecard :: coursecard"></div>
+            </a>
+        </div>
+
     </div>
+
 </div>
