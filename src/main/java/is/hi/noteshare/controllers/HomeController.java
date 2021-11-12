@@ -2,6 +2,7 @@ package is.hi.noteshare.controllers;
 
 import is.hi.noteshare.persistence.entities.Course;
 import is.hi.noteshare.persistence.entities.School;
+import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.services.CourseService;
 import is.hi.noteshare.services.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +53,11 @@ public class HomeController {
         */
         return "redirect:/#filter";
     }
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String getAbout(){
+        return "about";
+    }
 }
+
+
