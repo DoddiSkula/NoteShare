@@ -4,6 +4,7 @@
     <title>NoteShare - signup</title>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
+    <link rel="icon" type="image/x-icon" href="../static/icons/notebook.png" th:href="@{/icons/notebook.png}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -16,7 +17,30 @@
 <!-- Content -->
 <div class="content">
     <div class="container">
-        <!-- TODO -->
+        <div class="singupsheet">
+            <form id="filter" th:action="@{/signup}" method="post">
+                <div>
+                    <div>
+                        <label>Username</label>
+                        <input class="singupinput" type="text" id="username" name="singupinput" placeholder="dragonslayer" autocomplete="off">
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input class="singupinput" type="text" id="email" name="singupinput" placeholder="hunter3" autocomplete="off">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Password</label>
+                        <input class="singupinput" type="text" id="password" name="singupinput" placeholder="dragonslayer" autocomplete="off">
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input class="singupinput" type="text" id="schooldropdown" name="singupinput" placeholder="hunter3" autocomplete="off">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
