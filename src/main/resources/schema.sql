@@ -17,6 +17,12 @@ CREATE TABLE users (
     admin bool
 );
 
+DROP TABLE IF EXISTS degrees CASCADE;
+CREATE TABLE degrees (
+    id serial primary key,
+    degree varchar(12)
+);
+
 DROP TABLE IF EXISTS courses CASCADE;
 CREATE TABLE courses (
     id serial primary key,
@@ -51,12 +57,6 @@ DROP TABLE IF EXISTS subjects CASCADE;
 CREATE TABLE subjects (
     id serial primary key,
     subject varchar(255)
-);
-
-DROP TABLE IF EXISTS degrees CASCADE;
-CREATE TABLE degrees (
-    id serial primary key,
-    degree varchar(12)
 );
 
 -- join tables
