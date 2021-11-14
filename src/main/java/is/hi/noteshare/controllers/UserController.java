@@ -20,7 +20,6 @@ public class UserController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signupGET(User user){
-
         return "signup";
     }
 
