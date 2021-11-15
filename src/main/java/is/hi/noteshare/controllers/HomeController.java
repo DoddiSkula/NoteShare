@@ -98,6 +98,11 @@ public class HomeController {
     public String getAbout(){
         return "about";
     }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String getContact(){
+        return "contact";
+    }
 }
 
 
