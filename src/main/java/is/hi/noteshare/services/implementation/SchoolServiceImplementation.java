@@ -1,12 +1,13 @@
 package is.hi.noteshare.services.implementation;
 
+import is.hi.noteshare.persistence.entities.Degree;
 import is.hi.noteshare.persistence.entities.School;
+import is.hi.noteshare.persistence.entities.Subject;
 import is.hi.noteshare.persistence.repositories.SchoolRepository;
 import is.hi.noteshare.services.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,13 +20,16 @@ public class SchoolServiceImplementation implements SchoolService{
     }
 
     @Override
-    public List<School> findByName(String name){
-        return schoolRepository.findByName(name);
-    }
+    public List<School> findByName(String name){ return schoolRepository.findByName(name); }
 
     @Override
     public List<School> findAll(){
         return schoolRepository.findAll();
+    }
+
+    @Override
+    public School findById(long id) {
+        return schoolRepository.findById(id);
     }
 
     @Override
@@ -38,10 +42,5 @@ public class SchoolServiceImplementation implements SchoolService{
         schoolRepository.delete(school);
     }
 
-    @Override
-    public List<String> findAllSubjects() { return schoolRepository.findAllSubjects(); }
-
-    @Override
-    public List<String> findAllDegrees() { return schoolRepository.findAllDegrees(); }
 
 }

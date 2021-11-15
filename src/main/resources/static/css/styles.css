@@ -30,6 +30,16 @@ a {
     color: #4B4B4B;
 }
 
+input:focus {
+    border: none;
+    outline: none;
+}
+
+select:focus {
+    border: none;
+    outline: none;
+}
+
 .content {
     margin-top: 60px;
 }
@@ -167,7 +177,8 @@ a {
 
 .all-courses {
     padding-top: 2rem;
-    background: #F5F5F5
+    background: #F5F5F5;
+    height: 100vh;
 }
 
 /* Course List */
@@ -182,11 +193,26 @@ a {
 }
 
 .filter select {
-    width: 175px;
+    width: 165px;
     height: 35px;
     background-color: #E8E8E8;
     border: none;
     font-family: 'Roboto', sans-serif;
+}
+
+.filter-submit {
+    width: 100px;
+    height: 35px;
+    background-color: #EA86FB;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+.filter-submit:hover {
+    filter: brightness(1.05);
 }
 
 .search {
@@ -234,6 +260,10 @@ a {
     .filter select {
         width: 100%;
         margin-bottom: 1rem;
+    }
+
+    .filter-submit {
+        width: 100%;
     }
 
 }

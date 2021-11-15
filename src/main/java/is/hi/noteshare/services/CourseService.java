@@ -11,5 +11,6 @@ public interface CourseService {
     List<Course> findAll();
     Course save(Course Course);
     void delete(Course course);
+    List<Course> findByKeyword(String keyword);
 }
 

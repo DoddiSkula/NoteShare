@@ -1,10 +1,7 @@
 package is.hi.noteshare.controllers;
 
-import is.hi.noteshare.persistence.entities.Course;
-import is.hi.noteshare.persistence.entities.School;
-import is.hi.noteshare.persistence.entities.User;
-import is.hi.noteshare.services.CourseService;
-import is.hi.noteshare.services.SchoolService;
+import is.hi.noteshare.persistence.entities.*;
+import is.hi.noteshare.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,23 +18,34 @@ import java.util.List;
 public class HomeController {
     private final CourseService courseService;
     private final SchoolService schoolService;
+    private final SubjectService subjectService;
+    private final DegreeService degreeService;
 
     @Autowired
-    public HomeController(CourseService courseService, SchoolService schoolService) {
+    public HomeController(CourseService courseService, SchoolService schoolService, SubjectService subjectService, DegreeService degreeService) {
         this.courseService = courseService;
         this.schoolService = schoolService;
+        this.subjectService = subjectService;
+        this.degreeService = degreeService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Model model){
+    public String home(HttpSession session, Model model){
         // TODO er notandi innskráður?
 
+        // fetch all data (possibly keep in session?)
         List<Course> courses = courseService.findAll();
         List<School> schools = schoolService.findAll();
-        List<String> subjects = schoolService.findAllSubjects();
-        List<String> degrees = schoolService.findAllDegrees();
+        List<Subject> subjects = subjectService.findAll();
+        List<Degree> degrees = degreeService.findAll();
 
-        model.addAttribute("courses", courses);
+        // add all courses or courses from search result
+        List<Course> coursesSession = (List<Course>) session.getAttribute("courseList");
+        List<Course> courseList = coursesSession == null ? courses : coursesSession;
+
+        // add data to model
+        model.addAttribute("search", new SearchCourse());
+        model.addAttribute("courses", courseList);
         model.addAttribute("schools", schools);
         model.addAttribute("subjects", subjects);
         model.addAttribute("degrees", degrees);
@@ -44,14 +54,44 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public String search(Course course, BindingResult result, Model model){
-        /*
-        if(!result.hasErrors()){
-            List<Course> courses = courseService.findByFilter(course.getSchool().getId(), course.getField(), course.getDegree());
-            model.addAttribute("courses", courses);
+    public String search(SearchCourse search, BindingResult result, Model model, HttpSession session){
+        if(result.hasErrors()){
+            System.out.println(result.getAllErrors());
+            return "redirect:/#filter";
         }
-        */
-        return "redirect:/#filter";
+
+        List<Course> courses = courseService.findAll();
+
+        // fetch objects from search parameters
+        School school = schoolService.findById(search.getSchool());
+        Subject subject = subjectService.findById(search.getSubject());
+        Degree degree = degreeService.findById(search.getDegree());
+
+        // course lists by parameter
+        List<Course> schoolCourses = courses;
+        List<Course> subjectCourses = courses;
+        List<Course> degreeCourses = courses;
+        List<Course> keywordCourses = courses;
+
+        // fetch courses by parameter
+        if(school != null) { schoolCourses = school.getCourses(); }
+        if(subject != null) { subjectCourses = subject.getCourses(); }
+        if(degree != null) { degreeCourses = degree.getCourses(); }
+        if(!search.getKeyword().equals("") && search.getKeyword() != null) {
+            keywordCourses = courseService.findByKeyword(search.getKeyword());
+        }
+        System.out.println(search.getKeyword());
+        System.out.println(keywordCourses);
+
+        // find common courses
+        schoolCourses.retainAll(subjectCourses);
+        degreeCourses.retainAll(schoolCourses);
+        keywordCourses.retainAll(degreeCourses);
+
+        // keep search result in session
+        session.setAttribute("courseList", keywordCourses);
+
+        return "redirect:/#all-courses";
     }
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)

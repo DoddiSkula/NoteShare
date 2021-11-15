@@ -39,4 +39,9 @@ public class CourseServiceImplementation implements CourseService {
     public void delete(Course course) {
         courseRepository.delete(course);
     }
+
+    @Override
+    public List<Course> findByKeyword(String keyword) {
+        return courseRepository.findByKeyword(keyword);
+    }
 }

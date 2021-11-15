@@ -4,26 +4,37 @@
 insert into schools(name, level) values ('University of Iceland', 'University');
 insert into schools(name, level) values ('Reykjavik University', 'University');
 
--- users
-insert into users(school_id, username, password, email, admin) values (1, 'admin', 'admin', 'admin@admin.com', true);
-
--- courses
-insert into courses(school_id, short_name, name) values (1, 'HBV501G', 'Software Project 1');
-insert into courses(school_id, short_name, name) values (1, 'HBV502G', 'Software Project 2');
-insert into courses(school_id, short_name, name) values (1, 'HBV503G', 'Software Project 3');
-insert into courses(school_id, short_name, name) values (1, 'HBV504G', 'Software Project 4');
-insert into courses(school_id, short_name, name) values (1, 'HBV505G', 'Software Project 5');
-insert into courses(school_id, short_name, name) values (1, 'HBV506G', 'Software Project 6');
-
--- user_courses (tímabundið fyrir admin/test user)
-insert into user_courses(user_id, course_id) values (1, 1);
-
 -- degrees
 insert into degrees(degree) values ('Bachelor');
 insert into degrees(degree) values ('Master');
 insert into degrees(degree) values ('Doctoral');
 
 -- subjects
+insert into subjects(subject) values('Software Engineering');
+insert into subjects(subject) values('Computer Science');
+insert into subjects(subject) values('Mathematics');
+
+-- users
+insert into users(school_id, username, password, email, admin) values (1, 'admin', 'admin', 'admin@admin.com', true);
+
+-- courses
+insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'HBV501G', 'Software Project 1');
+insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'HBV503G', 'Software Project 2');
+insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'STÆ302G', 'Mathematical Analysis III');
+
+-- course_subjects
+insert into course_subjects(course_id, subject_id) values(1, 1);
+insert into course_subjects(course_id, subject_id) values(1, 2);
+insert into course_subjects(course_id, subject_id) values(2, 1);
+insert into course_subjects(course_id, subject_id) values(2, 2);
+insert into course_subjects(course_id, subject_id) values(3, 1);
+insert into course_subjects(course_id, subject_id) values(3, 3);
+
+-- user_courses
+insert into user_courses(user_id, course_id) values (1, 1);
+
+
+/* more subjects
 insert into subjects(subject) values('Anthropology');
 insert into subjects(subject) values('Applied Inter-American Studies');
 insert into subjects(subject) values('Applied Statistics');
@@ -38,10 +49,8 @@ insert into subjects(subject) values('Biostatistics');
 insert into subjects(subject) values('Business Administration');
 insert into subjects(subject) values('Chemical Engineering');
 insert into subjects(subject) values('Chemistry');
-insert into subjects(subject) values('Civil Engineering');
 insert into subjects(subject) values('Computational Engineering');
 insert into subjects(subject) values('Computer Engineering');
-insert into subjects(subject) values('Computer Science');
 insert into subjects(subject) values('Danish');
 insert into subjects(subject) values('Dentistry');
 insert into subjects(subject) values('Development Studies');
@@ -79,7 +88,6 @@ insert into subjects(subject) values('Japanese Language and Culture');
 insert into subjects(subject) values('Law');
 insert into subjects(subject) values('Law, Natural Resources Law and International Environmental Law');
 insert into subjects(subject) values('Literature, Culture and Media');
-insert into subjects(subject) values('Mathematics');
 insert into subjects(subject) values('Mechanical Engineering');
 insert into subjects(subject) values('Medical Life Sciences');
 insert into subjects(subject) values('Medical Sciences');
@@ -99,9 +107,9 @@ insert into subjects(subject) values('Public');
 insert into subjects(subject) values('Renewable energy');
 insert into subjects(subject) values('Small State Studies: Small States in the International System');
 insert into subjects(subject) values('Sociology');
-insert into subjects(subject) values('Software Engineering');
 insert into subjects(subject) values('Spanish');
 insert into subjects(subject) values('Statistics');
 insert into subjects(subject) values('Swedish');
 insert into subjects(subject) values('Tourism Studies');
 insert into subjects(subject) values('Viking and Medieval Norse Studies');
+*/

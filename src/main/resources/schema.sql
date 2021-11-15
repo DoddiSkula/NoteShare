@@ -71,3 +71,9 @@ CREATE TABLE user_likes (
     user_id bigint references users(id),
     file_id bigint references files(id)
 );
+
+DROP TABLE IF EXISTS course_subjects CASCADE;
+CREATE TABLE course_subjects (
+    course_id bigint references courses(id),
+    subject_id bigint references subjects(id)
+);

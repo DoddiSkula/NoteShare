@@ -1,22 +1,24 @@
 package is.hi.noteshare.persistence.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
-@Table(name ="schools")
+@Table(name ="schools", schema = "public")
 public class School {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
 
-    @OneToMany(mappedBy ="school", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Course> courses = new ArrayList<>();
-
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "level")
     private String level;
+
+    @OneToMany(mappedBy ="school")
+    private List<Course> courses;
 
     public School(){}
 

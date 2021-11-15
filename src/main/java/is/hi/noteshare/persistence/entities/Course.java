@@ -18,13 +18,20 @@ public class Course {
     @Column(name = "name")
     private String longName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "school_id")
     private School school;
 
-    // breyta þessu
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<File> files = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "degree_id")
+    private Degree degree;
+
+    @ManyToMany
+    @JoinTable(name = "course_subjects",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id"))
+    private List<Subject> subjects;
+
 
     public Course() {}
 
@@ -60,12 +67,16 @@ public class Course {
         this.school = school;
     }
 
-    public List<File> getFiles() {
-        return files;
+    public Degree getDegree() { return degree; }
+
+    public void setDegree(Degree degree) {
+        this.degree = degree;
     }
 
-    public void setFiles(List<File> files) {
-        this.files = files;
+    public List<Subject> getSubjects() { return subjects; }
+
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
     }
 
 }
