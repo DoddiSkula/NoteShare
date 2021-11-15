@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>NoteShare - About</title>
+    <title>NoteShare - Contact</title>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,10 +15,21 @@
 
 <!-- Content -->
 <div class="content">
-    <div class="container">
-        <!-- TODO -->
+    <div class="splash-img">
+        <div class="container">
+            <div class="splash-page">
+                <div>
+                    <div class="splash-title">
+                        <h1>We're all ears!</h1>
+                    </div>
+                    <div class="splash-button-section">
+                        <a href="mailto:noreply@wedontcare.com"><button class="splash-button">Send us an e-mail!</button></a>
+                        <p>Share your thoughts :)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
