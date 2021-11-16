@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -80,8 +79,6 @@ public class HomeController {
         if(!search.getKeyword().equals("") && search.getKeyword() != null) {
             keywordCourses = courseService.findByKeyword(search.getKeyword());
         }
-        System.out.println(search.getKeyword());
-        System.out.println(keywordCourses);
 
         // find common courses
         schoolCourses.retainAll(subjectCourses);

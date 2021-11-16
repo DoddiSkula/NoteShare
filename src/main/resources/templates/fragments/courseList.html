@@ -24,16 +24,18 @@
                 </select>
             </div>
             <div>
-                <input class="filter-submit" type="submit" value="Filter">
+                <input class="filter-submit" type="submit" value="Search">
             </div>
         </div>
         <input th:field="*{keyword}" class="search" type="text" id="search" name="search" placeholder="Search" autocomplete="off">
     </form>
 
-    <div th:each="course: ${courses}">
-        <a th:href="@{/course/{id}(id=${course.id})}">
-            <div th:replace="fragments/coursecard :: coursecard"></div>
-        </a>
+    <div class="course-list">
+        <div class="course-list-item" th:each="course: ${courses}">
+            <a th:href="@{/course/{id}(id=${course.id})}">
+                <div th:replace="fragments/coursecard :: coursecard"></div>
+            </a>
+        </div>
     </div>
 
 </div>

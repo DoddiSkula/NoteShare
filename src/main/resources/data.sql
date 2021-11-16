@@ -13,6 +13,7 @@ insert into degrees(degree) values ('Doctoral');
 insert into subjects(subject) values('Software Engineering');
 insert into subjects(subject) values('Computer Science');
 insert into subjects(subject) values('Mathematics');
+insert into subjects(subject) values('Law');
 
 -- users
 insert into users(school_id, username, password, email, admin) values (1, 'admin', 'admin', 'admin@admin.com', true);
@@ -21,6 +22,16 @@ insert into users(school_id, username, password, email, admin) values (1, 'admin
 insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'HBV501G', 'Software Project 1');
 insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'HBV503G', 'Software Project 2');
 insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'STÆ302G', 'Mathematical Analysis III');
+insert into courses(school_id, degree_id, short_name, name) values (2, 1, 'L-102-STSR', 'Constitutional Law');
+insert into courses(school_id, degree_id, short_name, name) values (2, 1, 'L-502-SKAT', 'Tax Law');
+insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'DMC101', 'Dummy Course I');
+insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'DMC202', 'Dummy Course II');
+insert into courses(school_id, degree_id, short_name, name) values (1, 1, 'DMC303', 'Dummy Course III');
+insert into courses(school_id, degree_id, short_name, name) values (1, 2, 'DMC404', 'Dummy Course IV');
+insert into courses(school_id, degree_id, short_name, name) values (1, 2, 'DMC505', 'Dummy Course V');
+insert into courses(school_id, degree_id, short_name, name) values (1, 2, 'DMC606', 'Dummy Course VI');
+insert into courses(school_id, degree_id, short_name, name) values (1, 3, 'DMC707', 'Dummy Course VII');
+insert into courses(school_id, degree_id, short_name, name) values (1, 3, 'DMC808', 'Dummy Course VIII');
 
 -- course_subjects
 insert into course_subjects(course_id, subject_id) values(1, 1);
@@ -29,6 +40,8 @@ insert into course_subjects(course_id, subject_id) values(2, 1);
 insert into course_subjects(course_id, subject_id) values(2, 2);
 insert into course_subjects(course_id, subject_id) values(3, 1);
 insert into course_subjects(course_id, subject_id) values(3, 3);
+insert into course_subjects(course_id, subject_id) values(4, 4);
+insert into course_subjects(course_id, subject_id) values(5, 4);
 
 -- user_courses
 insert into user_courses(user_id, course_id) values (1, 1);

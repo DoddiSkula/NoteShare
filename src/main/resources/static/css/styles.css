@@ -21,6 +21,10 @@ h2 {
     margin-bottom: 1rem;
 }
 
+h3 {
+    font-weight: 400;
+}
+
 p {
     color: #4B4B4B;
 }
@@ -33,6 +37,10 @@ a {
 input:focus {
     border: none;
     outline: none;
+}
+
+select {
+    cursor: pointer;
 }
 
 select:focus {
@@ -51,6 +59,28 @@ select:focus {
 
 .flex {
     display: flex;
+}
+
+/* Scroll bar */
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #A3A3A3  rgba(0, 0, 0, 0.2);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background:  rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #A3A3A3;
+    border-radius: 20px;
+    border: none;
 }
 
 /* Header */
@@ -159,7 +189,7 @@ select:focus {
 
 .splash-about {
     height: 30vh;
-    background-color: #EEEEEE;
+    background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,13 +205,19 @@ select:focus {
     color: #EA86FB;
 }
 
-.all-courses {
-    padding-top: 2rem;
-    background: #F5F5F5;
-    height: 100vh;
-}
 
 /* Course List */
+.all-courses {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    background-color: #FBFBFB;
+    background-image: url("../img/leaf-bg.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    height: 85vh;
+}
+
 .filter {
     margin-top: 2rem;
     display: flex;
@@ -203,16 +239,11 @@ select:focus {
 .filter-submit {
     width: 100px;
     height: 35px;
-    background-color: #EA86FB;
-    border-radius: 5px;
-    color: #FFFFFF;
+    background-color: #E8E8E8;
     border: none;
+    border-radius: 7px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-}
-
-.filter-submit:hover {
-    filter: brightness(1.05);
 }
 
 .search {
@@ -226,6 +257,51 @@ select:focus {
     font-size: 1rem;
     padding-left: 1rem;
 }
+
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 52vh;
+}
+
+/* Course card */
+.course-card {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    width: 265px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.course-list-item:nth-child(3n-1) {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.course-card:hover {
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(0deg, rgba(46,211,255,1) 0%, rgba(234,134,251,1) 100%);
+}
+
+.course-card p {
+    color: #686868;
+}
+
+.course-card h3 {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.course-card .school-name {
+    color: #A3A3A3;
+    font-size: 0.75rem;
+}
+
 
 @media (max-width: 880px) {
     .container {
@@ -263,6 +339,25 @@ select:focus {
     }
 
     .filter-submit {
+        width: 100%;
+    }
+
+    .all-courses {
+        height: 100vh;
+    }
+
+    .course-list {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 56vh;
+    }
+
+    .course-list-item:nth-child(3n-1) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .course-card {
         width: 100%;
     }
 

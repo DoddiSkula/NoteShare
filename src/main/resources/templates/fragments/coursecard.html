@@ -1,8 +1,5 @@
-<div th:fragment="coursecard">
+<div th:fragment="coursecard" class="course-card">
     <p th:text="${course.shortName}"></p>
-    <p th:text="${course.longName}"></p>
-    <p th:text="${course.school.name}"></p>
-    <p th:text="${course.degree.degree}"></p>
-    <p th:each="subject : ${course.subjects}" th:text="${subject.subject}"></p>
-    <hr/>
+    <h3 th:text="${course.longName}"></h3>
+    <p class="school-name" th:text="${course.school.name}"></p>
 </div>
