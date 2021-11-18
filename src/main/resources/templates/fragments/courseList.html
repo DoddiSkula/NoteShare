@@ -1,7 +1,7 @@
 <!-- Course list -->
 <div th:fragment="courseList">
     <form id="filter" th:action="@{/search}" th:object="${search}" method="post">
-        <div class="filter" >
+        <div class="filter">
             <div>
                 <label for="university">University</label>
                 <select th:field="*{school}" name="university" id="university">

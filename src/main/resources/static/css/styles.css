@@ -37,10 +37,12 @@ a {
 input:focus {
     border: none;
     outline: none;
+    color: #4B4B4B;
 }
 
 select {
     cursor: pointer;
+    color: #4B4B4B;
 }
 
 select:focus {
@@ -300,6 +302,60 @@ select:focus {
 .course-card .school-name {
     color: #A3A3A3;
     font-size: 0.75rem;
+}
+
+/* Sign up / Login */
+.form-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-page h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.form-section {
+    background: #F5F5F5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+.form-user {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.form-user > input, .form-user > select {
+    width: 340px;
+    height: 40px;
+    margin-top: 1.5rem;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.form-user > input::placeholder {
+    color: #4B4B4B;
+}
+
+.input-note {
+    color: #717171;
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
 }
 
 
