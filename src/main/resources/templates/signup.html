@@ -16,31 +16,32 @@
 
 <!-- Content -->
 <div class="content">
-    <div class="getstarted">
-        <div class="container">
-         <div class="splash-title">
-                <h1>Get started with NoteShare!</h1>
-        </div>
+    <div class="container">
+        <div class="singupsheet">
+            <form id="filter" th:action="@{/signup}" method="post">
+                <div>
+                    <div>
+                        <label>Username</label>
+                        <input class="singupinput" type="text" id="username" name="singupinput" placeholder="dragonslayer" autocomplete="off">
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input class="singupinput" type="text" id="email" name="singupinput" placeholder="hunter3" autocomplete="off">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Password</label>
+                        <input class="singupinput" type="text" id="password" name="singupinput" placeholder="dragonslayer" autocomplete="off">
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input class="singupinput" type="text" id="schooldropdown" name="singupinput" placeholder="hunter3" autocomplete="off">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-        <div class="container">
-                <form id="filter" th:action="@{/signup}" method="post">
-                    <div class="signup-sheet">
-                        <input class="singup-input" type="text" id="email" name="singupinput" placeholder="Email" autocomplete="off">
-                        <input class="singup-input" type="text" id="password" name="singupinput" placeholder="Password" autocomplete="off">
-                        <select class="singup-input" type="text" id="schooldropdown" name="singupinput" autocomplete="off">
-                            <option value="0" selected="selected">Any</option>
-                            <option value="1">University of Iceland</option>
-                            <option value="2">Reykjavik University</option>
-                        </select>
-                        <div class="splash-button-section">
-                            <button onclick="window.location.href='/';" class="splash-button">Sign up</button>
-                            <p>Already have an account? <a href="/login">Login</a></p>
-                        </div>
-
-                    </div>
-                </form>
-        </div>
 </div>
 
 <!-- Footer -->

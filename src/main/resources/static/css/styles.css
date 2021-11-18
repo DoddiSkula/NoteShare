@@ -145,49 +145,6 @@ select:focus {
     display: flex;
     align-items: center;
 }
-.getstarted {
-    height: 30vh;
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-}
-.signup-sheet{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    height: 542px;
-}
-.signup-container{
-
-}
-
-.signup-sheet input{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 330px;
-    height: 40px;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
-    border: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    padding-left: 1rem;
-}
-
-.signup-sheet select{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 330px;
-    height: 40px;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
-    border: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    padding-left: 1rem;
-}
 
 .splash-title {
     font-size: 1.75rem;
