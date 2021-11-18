@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>NoteShare - Login</title>
+    <title>NoteShare - login</title>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
-    <link rel="icon" type="image/x-icon" href="../static/icons/notebook.png" th:href="@{/icons/notebook.png}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -15,15 +14,9 @@
 <div th:replace="fragments/header :: header"></div>
 
 <!-- Content -->
-<div class="form-page">
-    <h1>Welcome back!</h1>
-    <div class="form-section">
-        <form class="form-user" id="login-form" th:action="@{/login}" method="post">
-            <input type="email" id="email" name="email" placeholder="Email" autocomplete="off">
-            <input type="password" id="password" name="password" placeholder="Password" autocomplete="off">
-        </form>
-        <button class="splash-button" type="submit" form="login-form" value="Submit">Login</button>
-        <p>Don't have an account? <a href="/signup" style="font-weight: 700">Sign up</a></p>
+<div class="content">
+    <div class="container">
+        <!-- TODO -->
     </div>
 </div>
 
