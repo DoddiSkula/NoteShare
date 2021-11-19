@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImplementation implements UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public UserServiceImplementation(UserRepository userRepository){
@@ -18,7 +18,7 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public List<User> findByUsername(String username){
+    public User findByUsername(String username){
         return userRepository.findByUsername(username);
     }
 
@@ -39,6 +39,12 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User login(User user) {
+        User doesExist = findByUsername(user.getUsername());
+        if(doesExist != null){
+            if(doesExist.getPassword().equals(user.getPassword())){
+                return doesExist;
+            }
+        }
         return null;
     }
 }

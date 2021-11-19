@@ -15,7 +15,7 @@ public class Subject {
     private String subject;
 
     @ManyToMany(mappedBy = "subjects")
-    List<Course> courses;
+    private List<Course> courses;
 
     public Subject() {}
 

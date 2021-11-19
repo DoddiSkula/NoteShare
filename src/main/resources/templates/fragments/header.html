@@ -1,5 +1,6 @@
 <!-- Navigation bar -->
 <div class="navbar" th:fragment="header">
     <a href="/" class="logo">Note<span style="color: #0BA4CD; font-weight: 700">Share</span></a>
-    <a href="/login" class="login">Login</a>
+    <a th:if="${loggedInUser != null}" th:href="@{/user/{username}(username=${loggedInUser.username})}" class="login" th:text="${loggedInUser.username}"></a>
+    <a th:if="${loggedInUser == null}" href="/login" class="login">Login</a>
 </div>

@@ -18,18 +18,17 @@
 <div class="form-page">
     <h1>Get started with NoteShare!</h1>
     <div class="form-section">
-        <form class="form-user" id="signup-form" th:action="@{/signup}" method="post">
-            <input type="email" id="email" name="email" placeholder="Email" autocomplete="off">
+        <form class="form-user" id="signup-form" th:action="@{/signup}" th:object="${user}" method="post">
+            <input th:field="*{email}" type="email" id="email" name="email" placeholder="Email" autocomplete="off">
             <p class="input-note">Note: Email has to be a valid school email</p>
-            <input type="password" id="password" name="password" placeholder="Password" autocomplete="off">
-            <select id="school" name="school">
-                <option value="" disabled selected>School</option>
-                <option>University of Iceland</option>
+            <input th:field="*{password}" type="password" id="password" name="password" placeholder="Password" autocomplete="off">
+            <select th:field="*{schoolId}"  id="school" name="school">
+                <option th:value="${0}" disabled selected>School</option>
+                <option th:each="school : ${schools}" th:value="${school.id}" th:text="${school.name}"></option>
             </select>
         </form>
         <button class="splash-button" type="submit" form="signup-form" value="Submit">Sign up</button>
         <p>Already have an account? <a href="/login" style="font-weight: 700">Login</a></p>
-
     </div>
 </div>
 

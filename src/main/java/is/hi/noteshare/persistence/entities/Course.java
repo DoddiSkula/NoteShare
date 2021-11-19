@@ -1,7 +1,6 @@
 package is.hi.noteshare.persistence.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,6 +24,9 @@ public class Course {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "degree_id")
     private Degree degree;
+
+    @ManyToMany(mappedBy = "courses")
+    private List<User> users;
 
     @ManyToMany
     @JoinTable(name = "course_subjects",
@@ -79,4 +81,7 @@ public class Course {
         this.subjects = subjects;
     }
 
+    public List<User> getUsers() { return users; }
+
+    public void setUsers(List<User> users) { this.users = users; }
 }

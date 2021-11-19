@@ -1,45 +1,44 @@
 package is.hi.noteshare.persistence.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "public")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
 
+    @Column(name = "school_id")
+    private int schoolId;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
-    private int school_id;
+
+    @Id
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "admin")
     private boolean admin;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Comment> comments = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Course> courses = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(name = "user_courses",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Course> courses;
 
     public User() {}
 
-    public User(String username, String password, int school_id, String email, boolean admin){
+    public User(String username, String password, int schoolId, String email, boolean admin){
         this.username = username;
         this.password = password;
-        this.school_id = school_id;
+        this.schoolId = schoolId;
         this.email = email;
         this.admin = admin;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -57,12 +56,12 @@ public class User {
         this.password = password;
     }
 
-    public int getSchoolid() {
-        return school_id;
+    public int getSchoolId() {
+        return schoolId;
     }
 
-    public void setSchoolid(int school_id) {
-        this.school_id = school_id;
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
     }
 
     public String getEmail() {
@@ -89,11 +88,4 @@ public class User {
         this.courses = courses;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 }

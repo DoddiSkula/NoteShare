@@ -303,6 +303,8 @@ select:focus {
     color: #A3A3A3;
     font-size: 0.75rem;
 }
+
+/* Signup/login */
 .form-page {
     display: flex;
     flex-direction: column;

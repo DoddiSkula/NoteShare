@@ -30,8 +30,6 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(HttpSession session, Model model){
-        // TODO er notandi innskráður?
-
         // fetch all data (possibly keep in session?)
         List<Course> courses = courseService.findAll();
         List<School> schools = schoolService.findAll();
@@ -41,6 +39,12 @@ public class HomeController {
         // add all courses or courses from search result
         List<Course> coursesSession = (List<Course>) session.getAttribute("courseList");
         List<Course> courseList = coursesSession == null ? courses : coursesSession;
+
+        // get logged in user
+        User userSession = (User) session.getAttribute("loggedInUser");
+        if(userSession != null) {
+            model.addAttribute("loggedInUser", userSession);
+        }
 
         // add data to model
         model.addAttribute("search", new SearchCourse());

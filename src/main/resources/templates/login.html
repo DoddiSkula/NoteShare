@@ -18,9 +18,9 @@
 <div class="form-page">
     <h1>Welcome back!</h1>
     <div class="form-section">
-        <form class="form-user" id="login-form" th:action="@{/login}" method="post">
-            <input type="email" id="email" name="email" placeholder="Email" autocomplete="off">
-            <input type="password" id="password" name="password" placeholder="Password" autocomplete="off">
+        <form class="form-user" id="login-form" th:action="@{/login}" th:object="${user}" method="post">
+            <input th:field="*{email}" type="email" id="email" name="email" placeholder="Email" autocomplete="off">
+            <input th:field="*{password}" type="password" id="password" name="password" placeholder="Password" autocomplete="off">
         </form>
         <button class="splash-button" type="submit" form="login-form" value="Submit">Login</button>
         <p>Don't have an account? <a href="/signup" style="font-weight: 700">Sign up</a></p>
