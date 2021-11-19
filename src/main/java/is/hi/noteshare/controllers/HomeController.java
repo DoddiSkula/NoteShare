@@ -104,6 +104,16 @@ public class HomeController {
     public String getContact(){
         return "contact";
     }
+
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public String getProfile(){
+        return "profile";
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String getUpload(){
+        return "upload";
+    }
 }
 
 
