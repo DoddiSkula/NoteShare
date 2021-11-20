@@ -232,6 +232,13 @@ select:focus {
     height: 85vh;
 }
 
+.my-courses {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    height: 50vh;
+    background: linear-gradient(180deg, rgba(255, 95, 239, 0.37) 0%, rgba(11, 164, 205, 0.26) 100%);
+}
+
 .filter {
     margin-top: 2rem;
     display: flex;
@@ -316,6 +323,7 @@ select:focus {
     font-size: 0.75rem;
 }
 
+/* User profile */
 .user-info{
     display: flex;
     flex-direction: row;
@@ -395,8 +403,6 @@ select:focus {
     padding-left: 1rem;
 }
 
-
-
 .form-user > input::placeholder, .form-file > input::placeholder {
     color: #4B4B4B;
 }
@@ -407,18 +413,6 @@ select:focus {
     margin-top: 0.75rem;
     margin-bottom: 0;
 }
-
-.files-section{
-    width: 100%;
-    display: flex;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    margin-top: 4rem;
-
-    background: linear-gradient(180deg, rgba(255, 95, 239, 0.37) 0%, rgba(11, 164, 205, 0.26) 100%);
-}
-
-
 
 @media (max-width: 880px) {
     .container {

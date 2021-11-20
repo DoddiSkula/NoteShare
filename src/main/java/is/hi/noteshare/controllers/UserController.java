@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class UserController {
@@ -103,20 +104,22 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/{username}", method = RequestMethod.GET)
-    public String profileGET(@PathVariable("username") String username, User user, Model model, HttpSession session){
-        // get logged in user
-        User userSession = (User) session.getAttribute("loggedInUser");
-        if(userSession != null) {
-            model.addAttribute("loggedInUser", userSession);
+    public String profileGET(@PathVariable("username") String username, Model model, HttpSession session){
+        // get user
+        User user = userService.findByUsername(username);
+        if(user != null) {
+            School school = schoolService.findById(user.getSchoolId());
+            model.addAttribute("user", user);
+            model.addAttribute("myCourses", user.getCourses());
+            model.addAttribute("school", school);
+
+            // get logged in user
+            User userSession = (User) session.getAttribute("loggedInUser");
+            if (userSession != null) {
+                model.addAttribute("loggedInUser", userSession);
+                model.addAttribute("isOwner", Objects.equals(userSession.getEmail(), user.getEmail()));
+            }
         }
-
-        // get user's school
-        School school = schoolService.findById(userSession.getSchoolId());
-
-        model.addAttribute("user", userSession);
-        model.addAttribute("school", school);
-        model.addAttribute("courses", userSession.getCourses());
-
         return "profile";
     }
 

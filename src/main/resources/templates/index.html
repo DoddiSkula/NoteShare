@@ -50,11 +50,11 @@
 
             <!-- Display my courses if logged in -->
             <div th:if="${loggedInUser != null}">
-                <div class="files-section">
+                <div class="my-courses">
                     <div class="container">
-                        <h2><span style="font-weight: 700">MY</span> courses</h2>
+                        <h2><span style="font-weight: 700">My</span> courses</h2>
                         <!-- Course list -->
-                        <div th:replace="fragments/MYcourseList :: MYcourseList"></div>
+                        <div th:replace="fragments/myCourseList :: myCourseList"></div>
                     </div>
                 </div>
             </div>

@@ -16,13 +16,15 @@
 
 <!-- Content -->
 <div class="content">
+
+    <!-- User info -->
     <div class="container">
         <div class="user-info">
             <div class="userinfo1">
             <div class ="user-pic">
                 <img src="../img/anonon.png">
             </div>
-            <form class="logout" id="logout" th:action="@{/logout}" method="post">
+            <form th:if="${isOwner}" class="logout" id="logout" th:action="@{/logout}" method="post">
                 <input class="filter-submit" type="submit" value="Logout">
             </form>
             </div>
@@ -36,20 +38,23 @@
             </div>
         </div>
     </div>
-    <div class="files-section">
-        <div class="container">
-            <h2><span style="font-weight: 700">MY</span> files</h2>
-            <!-- File list -->
-            <!--<div th:replace="fragments/MYfileList :: MYcourseList"></div>-->
-        </div>
+
+    <!-- Files -->
+    <div class="container">
+        <h2 th:if="${isOwner}"><span style="font-weight: 700">My</span> uploads</h2>
+        <h2 th:if="${!isOwner}">Uploads</h2>
+        <!-- File list -->
     </div>
-    <div class="all-courses" id="all-courses">
+
+    <!-- Courses -->
+    <div th:if="${isOwner}" class="my-courses">
         <div class="container">
-            <h2><span style="font-weight: 700">MY</span> courses</h2>
+            <h2><span style="font-weight: 700">My</span> courses</h2>
             <!-- Course list -->
-            <div th:replace="fragments/MYcourseList :: MYcourseList"></div>
+            <div th:replace="fragments/myCourseList :: myCourseList"></div>
         </div>
     </div>
+
 </div>
 
 <!-- Footer -->
