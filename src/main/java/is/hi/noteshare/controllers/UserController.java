@@ -97,6 +97,8 @@ public class UserController {
             model.addAttribute("loggedInUser", userSession);
         }
 
+        model.addAttribute("user", userSession);
+
         return "profile";
     }
 
