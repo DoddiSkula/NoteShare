@@ -25,7 +25,7 @@ public class Course {
     @JoinColumn(name = "degree_id")
     private Degree degree;
 
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "userCourses")
     private List<User> users;
 
     @ManyToMany

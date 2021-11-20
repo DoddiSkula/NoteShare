@@ -103,17 +103,20 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/{username}", method = RequestMethod.GET)
-    public String loginGET(@PathVariable("username") String username, User user, Model model, HttpSession session){
+    public String profileGET(@PathVariable("username") String username, User user, Model model, HttpSession session){
         // get logged in user
         User userSession = (User) session.getAttribute("loggedInUser");
         if(userSession != null) {
             model.addAttribute("loggedInUser", userSession);
         }
 
-        model.addAttribute("user", userSession);
+        // get user's school
         School school = schoolService.findById(userSession.getSchoolId());
+
+        model.addAttribute("user", userSession);
         model.addAttribute("school", school);
-        model.addAttribute("Mycourses", userSession.getCourses());
+        model.addAttribute("courses", userSession.getCourses());
+
         return "profile";
     }
 

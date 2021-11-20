@@ -8,7 +8,8 @@ import java.util.List;
 public class Subject {
 
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private long id;
 
     @Column(name = "subject")

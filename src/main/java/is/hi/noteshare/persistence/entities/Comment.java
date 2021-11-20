@@ -8,6 +8,7 @@ import java.util.Date;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private long Id;
 
     @ManyToOne(fetch = FetchType.LAZY)

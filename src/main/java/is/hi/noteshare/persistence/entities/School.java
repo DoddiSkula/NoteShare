@@ -8,7 +8,8 @@ import java.util.List;
 @Table(name ="schools", schema = "public")
 public class School {
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private long id;
 
     @Column(name = "name")

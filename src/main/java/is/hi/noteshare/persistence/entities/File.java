@@ -10,6 +10,7 @@ import java.util.List;
 public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

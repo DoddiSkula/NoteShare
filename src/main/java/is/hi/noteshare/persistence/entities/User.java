@@ -7,6 +7,11 @@ import java.util.List;
 @Table(name = "users", schema = "public")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
+    private long id;
+
     @Column(name = "school_id")
     private int schoolId;
 
@@ -16,7 +21,6 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Id
     @Column(name = "email")
     private String email;
 
@@ -27,7 +31,7 @@ public class User {
     @JoinTable(name = "user_courses",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private List<Course> courses;
+    private List<Course> userCourses;
 
     public User() {}
 
@@ -39,6 +43,10 @@ public class User {
         this.admin = admin;
     }
 
+
+    public void setId(long id) { this.id = id; }
+
+    public long getId() { return id; }
 
     public String getUsername() {
         return username;
@@ -81,11 +89,11 @@ public class User {
     }
 
     public List<Course> getCourses() {
-        return courses;
+        return userCourses;
     }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
+    public void setCourses(List<Course> userCourses) {
+        this.userCourses = userCourses;
     }
 
 }
