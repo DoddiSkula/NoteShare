@@ -26,10 +26,10 @@
             </form>
             <div class="user-text">
                 <ul>
-                    <li th:text="${user.username}"></li>
-                    <li th:text="${user.email}"></li>
-                    <li th:text="${user.schoolId}"></li>
-                    <li></li>
+                    <li th:text="'Name: ' + ${user.username}"></li>
+                    <li th:text="'E-mail: ' + ${user.email}"></li>
+                    <li th:text="'School: ' + ${school.name}"></li>
+                    <li th:text="'Files: '"></li>
                 </ul>
 
             </div>

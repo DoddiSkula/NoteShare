@@ -111,7 +111,8 @@ public class UserController {
         }
 
         model.addAttribute("user", userSession);
-
+        School school = schoolService.findById(userSession.getSchoolId());
+        model.addAttribute("school", school);
         return "profile";
     }
 

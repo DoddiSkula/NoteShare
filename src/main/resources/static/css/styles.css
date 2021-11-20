@@ -311,12 +311,17 @@ select:focus {
 
 .user-pic{
     display: flex;
-    width: 50%;
+    width: 70%;
+    align-items: flex-end;
 }
 
 .user-text{
     display: flex;
-    width: 50%;
+    width: 30%;
+    margin-left: 3rem;
+}
+.user-text li{
+    margin-bottom: 1rem;
 }
 /* Signup/login */
 .form-page {
