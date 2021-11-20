@@ -406,7 +406,7 @@ select:focus {
     margin-bottom: 0;
 }
 
-.liked-section{
+.contributions-section{
     width: 100%;
     display: flex;
     flex-direction: column;
