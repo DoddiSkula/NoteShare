@@ -308,20 +308,37 @@ select:focus {
     display: flex;
     flex-direction: row;
 }
+.userinfo1{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
 
 .user-pic{
     display: flex;
-    width: 70%;
+    width: 100%;
     align-items: flex-end;
+    justify-content: center;
+}
+.logout input{
+    align-items: flex-end;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .user-text{
     display: flex;
-    width: 30%;
+    width: 40%;
     margin-left: 3rem;
 }
 .user-text li{
     margin-bottom: 1rem;
+}
+
+.user-text ul{
+    justify-content: center;
+    margin-top: 3rem;
 }
 /* Signup/login */
 .form-page {
@@ -375,6 +392,19 @@ select:focus {
     font-size: 0.75rem;
     margin-top: 0.75rem;
     margin-bottom: 0;
+}
+
+.liked-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+
+    background: linear-gradient(180deg, rgba(255, 95, 239, 0.37) 0%, rgba(11, 164, 205, 0.26) 100%);
 }
 
 
