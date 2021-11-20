@@ -378,13 +378,13 @@ select:focus {
     margin-top: 4rem;
 }
 
-.form-user {
+.form-user, .form-file {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
 }
 
-.form-user > input, .form-user > select {
+.form-user > input, .form-user > select,.form-file > input, .form-file > select {
     width: 340px;
     height: 40px;
     margin-top: 1.5rem;
@@ -395,7 +395,9 @@ select:focus {
     padding-left: 1rem;
 }
 
-.form-user > input::placeholder {
+
+
+.form-user > input::placeholder, .form-file > input::placeholder {
     color: #4B4B4B;
 }
 

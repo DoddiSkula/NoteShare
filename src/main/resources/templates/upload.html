@@ -14,9 +14,16 @@
 <div th:replace="fragments/header :: header"></div>
 
 <!-- Content -->
-<div class="content">
-    <div class="container">
-        <!-- TODO -->
+
+<div class="form-page">
+    <h1 th:text="'Thank you for sharing your knowledge in: ' +  ${course.longName}"></h1>
+    <div class="form-section">
+        <form class="form-file" id="file-form">
+            <input type="title" id="title" name="title" placeholder="File Name" autocomplete="off">
+            <p class="input-note">Note: File has to be in .pdf format</p>
+            <input type="file" id="file" name="file" accept=".pdf">
+        </form>
+        <button class="splash-button" type="submit" form="file-form" value="Submit">Upload file</button>
     </div>
 </div>
 
@@ -25,5 +32,3 @@
 
 </body>
 </html>
-
-
