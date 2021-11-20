@@ -76,7 +76,6 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPOST(User user, BindingResult result, Model model, HttpSession session){
         if(result.hasErrors()){
-            System.out.println(result.getAllErrors());
             return "login";
         }
         user.setUsername(user.getEmail().split("@")[0]);
@@ -87,6 +86,20 @@ public class UserController {
         }
 
         return "redirect:/login";
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public String logoutPOST(User user, BindingResult result, Model model, HttpSession session){
+        if(result.hasErrors()){
+            return "redirect:/user/{username}";
+        }
+        // get logged in user
+        User userSession = (User) session.getAttribute("loggedInUser");
+        if(userSession != null) {
+            session.removeAttribute("loggedInUser");
+        }
+
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/user/{username}", method = RequestMethod.GET)

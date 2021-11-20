@@ -21,6 +21,9 @@
             <div class ="user-pic">
                 <img src="../img/anonon.png">
             </div>
+            <form id="logout" th:action="@{/logout}" method="post">
+                <input class="filter-submit" type="submit" value="Logout">
+            </form>
             <div class="user-text">
                 <ul>
                     <li th:text="${user.username}"></li>
