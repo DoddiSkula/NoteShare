@@ -59,6 +59,18 @@ select:focus {
     margin: auto;
 }
 
+.founder-img {
+    margin-bottom: 20px;
+}
+
+.founder{
+    display: flex;
+}
+
+.founder-abt{
+    margin: 5px;
+}
+
 .flex {
     display: flex;
 }
