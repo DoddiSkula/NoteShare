@@ -1,11 +1,12 @@
 <!-- Course list -->
 <div th:fragment="MYcourseList">
     <div class="course-list">
-        <div class="course-list-item" th:each="course: ${courses}">
+        <div th:if="${!courses.isEmpty() }" class="course-list-item" th:each="course: ${courses}">
             <a th:href="@{/course/{id}(id=${course.id})}">
                 <div th:replace="fragments/coursecard :: coursecard"></div>
             </a>
         </div>
+        <p th:if="${courses.isEmpty()}">No courses favorited</p>
     </div>
 
 </div>

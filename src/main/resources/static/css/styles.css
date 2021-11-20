@@ -408,12 +408,9 @@ select:focus {
     margin-bottom: 0;
 }
 
-.contributions-section{
+.files-section{
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin-top: 4rem;
