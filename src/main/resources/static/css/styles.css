@@ -304,6 +304,20 @@ select:focus {
     font-size: 0.75rem;
 }
 
+.user-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.user-pic{
+    display: flex;
+    width: 50%;
+}
+
+.user-text{
+    display: flex;
+    width: 50%;
+}
 /* Signup/login */
 .form-page {
     display: flex;
