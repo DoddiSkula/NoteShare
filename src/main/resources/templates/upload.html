@@ -14,18 +14,28 @@
 <div th:replace="fragments/header :: header"></div>
 
 <!-- Content -->
+<div class="content">
+    <div class="course-page">
+        <h1 class=" container-large course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
+        <div class="file-section upload-section">
+            <h2>Upload notes</h2>
+            <form class="form-file" id="file-form">
+                <input type="text" id="title" name="title" placeholder="Title" autocomplete="off">
+                <textarea  id="desc" name="desc" placeholder="Description" autocomplete="off"></textarea>
+                <input type="file" id="file" name="file" accept=".pdf">
+                <p class="input-note">Note: File has to be on pdf format</p>
+            </form>
+            <button class="splash-button" type="submit" form="file-form" value="Submit">Upload file</button>
+            <a th:href="@{/course/{id}(id=${course.id})}">
+                <p>Cancel</p>
+            </a>
+        </div>
 
-<div class="form-page">
-    <h1 th:text="'Thank you for sharing your knowledge in: ' +  ${course.longName}"></h1>
-    <div class="form-section">
-        <form class="form-file" id="file-form">
-            <input type="title" id="title" name="title" placeholder="File Name" autocomplete="off">
-            <p class="input-note">Note: File has to be in .pdf format</p>
-            <input type="file" id="file" name="file" accept=".pdf">
-        </form>
-        <button class="splash-button" type="submit" form="file-form" value="Submit">Upload file</button>
     </div>
 </div>
+
+
+
 
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>

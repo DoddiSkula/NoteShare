@@ -106,10 +106,6 @@ public class HomeController {
         return "contact";
     }
 
-    @RequestMapping(value = "/upload", method = RequestMethod.GET)
-    public String getUpload(){
-        return "upload";
-    }
 }
 
 

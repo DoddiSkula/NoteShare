@@ -16,20 +16,25 @@
 
 <!-- Content -->
 <div class="content">
-        <div class="course-page">
-            <h1 class=" container-large course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
-            <div class="file-section">
-                <div class="container-large">
-                    <h2>Notes</h2>
-                    <div>
-                        <!-- File card -->
-                    </div>
+    <div class="course-page">
+        <h1 class=" container-large course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
+        <div class="file-section">
+            <div class="container-large">
+                <h2>Notes</h2>
+                <div>
+                    <!-- File card -->
                 </div>
             </div>
-            <div class="container-large">
-                <button class="upload-button" onclick="window.location.href='/upload';">Add notes</button>
-            </div>
         </div>
+        <div class="container-large">
+            <a th:if="${loggedInUser}" th:href="@{/course/{id}/upload(id=${course.id})}">
+                <div class="splash-button upload-button">
+                    <p>Upload notes</p>
+                    <p style="font-size: 1.5rem">+</p>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
 
 <!-- Footer -->
