@@ -45,6 +45,13 @@ insert into course_subjects(course_id, subject_id) values(5, 4);
 
 -- user_courses
 insert into user_courses(user_id, course_id) values (1, 1);
+insert into user_courses(user_id, course_id) values (1, 2);
+insert into user_courses(user_id, course_id) values (1, 3);
+insert into user_courses(user_id, course_id) values (1, 4);
+insert into user_courses(user_id, course_id) values (1, 5);
+insert into user_courses(user_id, course_id) values (1, 6);
+insert into user_courses(user_id, course_id) values (1, 7);
+
 
 
 /* more subjects

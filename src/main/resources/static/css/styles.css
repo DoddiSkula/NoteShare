@@ -230,13 +230,7 @@ select:focus {
     background-position: center bottom;
     background-size: cover;
     height: 85vh;
-}
-
-.my-courses {
-    padding-top: 3rem;
-    padding-bottom: 4rem;
-    height: 50vh;
-    background: linear-gradient(180deg, rgba(255, 95, 239, 0.37) 0%, rgba(11, 164, 205, 0.26) 100%);
+    overflow: hidden;
 }
 
 .filter {
@@ -285,6 +279,23 @@ select:focus {
     overflow: auto;
     overflow-x: hidden;
     max-height: 52vh;
+}
+
+/* My course list */
+.my-courses {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    height: 50vh;
+    background: linear-gradient(180deg, rgba(255, 95, 239, 0.37) 0%, rgba(11, 164, 205, 0.26) 100%);
+    overflow: hidden;
+}
+
+.my-course-list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 30vh;
 }
 
 /* Course card */
@@ -460,7 +471,17 @@ select:focus {
     .course-list {
         flex-direction: column;
         flex-wrap: nowrap;
-        height: 56vh;
+        height: 50vh;
+    }
+
+    .my-courses {
+        height: 50vh;
+    }
+
+    .my-course-list {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 25vh;
     }
 
     .course-list-item:nth-child(3n-1) {
