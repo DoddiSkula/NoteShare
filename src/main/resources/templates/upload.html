@@ -20,10 +20,10 @@
         <h1 class=" container-large course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
         <div class="file-section upload-section">
             <h2>Upload notes</h2>
-            <form class="form-file" id="file-form" method="post">
-                <input type="text" id="title" name="title" placeholder="Title" autocomplete="off">
-                <textarea  id="desc" name="desc" placeholder="Description" autocomplete="off"></textarea>
-                <input type="file" id="file" name="file" accept=".pdf">
+            <form class="form-file" id="file-form" th:action="@{/course/{id}/upload(id=${course.id})}" method="post" th:object="${file}" enctype="multipart/form-data">
+                <input th:field="*{title}" type="text" id="title" name="title" placeholder="Title" autocomplete="off">
+                <textarea th:field="*{description}" id="desc" name="desc" placeholder="Description" autocomplete="off"></textarea>
+                <input th:field="*{fileFormat}" type="file" id="file" name="file" accept=".pdf" multiple="multiple">
                 <p class="input-note">Note: File has to be on pdf format</p>
             </form>
             <button class="splash-button" type="submit" form="file-form" value="Submit">Upload file</button>
@@ -34,9 +34,6 @@
 
     </div>
 </div>
-
-
-
 
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>

@@ -1,9 +1,10 @@
 package is.hi.noteshare.persistence.entities;
 
+import org.springframework.web.multipart.MultipartFile;
+import java.nio.file.Files;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "files", schema = "public")
@@ -13,13 +14,11 @@ public class File {
     @Column(columnDefinition = "serial")
     private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "user_id")
+    private long user;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @Column(name = "course_id")
+    private long course;
 
     @Column(name = "date")
     private Date date;
@@ -36,15 +35,21 @@ public class File {
     @Column(name = "likes")
     private int likes;
 
+    @Column(name = "data")
+    private byte[] data;
+
+
     public File(){}
 
-    public File(Date date, String title, String description, User user, String fileName, int likes){
+    public File(Date date, String title, String description, long user, long course, String fileName, int likes, byte[] data){
         this.date = date;
         this.title = title;
         this.description = description;
         this.user = user;
+        this.course = course;
         this.fileName = fileName;
         this.likes = likes;
+        this.data = data;
     }
 
     public long getId() {
@@ -79,19 +84,19 @@ public class File {
         this.description = description;
     }
 
-    public User getUser() {
+    public long getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(long user) {
         this.user = user;
     }
 
-    public Course getCourse() {
+    public long getCourse() {
         return course;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(long course) {
         this.course = course;
     }
 
@@ -102,4 +107,8 @@ public class File {
     public int getLikes() { return likes; }
 
     public void setLikes(int likes) { this.likes = likes; }
+
+    public byte[] getData() { return data; }
+
+    public void setData(byte[] data) { this.data = data; }
 }
