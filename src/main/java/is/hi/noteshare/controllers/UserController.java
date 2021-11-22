@@ -123,4 +123,13 @@ public class UserController {
         return "profile";
     }
 
+    @RequestMapping(value = "/course/{id}", method = RequestMethod.POST)
+    public String favoritePOST(User user, BindingResult result, Model model, HttpSession session){
+        if(user != null){
+            return "/course/{id}";
+        }
+
+        return "/course/{id}";
+    }
+
 }

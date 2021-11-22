@@ -23,6 +23,12 @@
                 <h2>Notes</h2>
                 <div>
                     <!-- File card -->
+                    <a th:if="${loggedInUser}" th:href="@{/course/{id}/favorite(id=${course.id})}">
+                        <div class="splash-button upload-button">
+                            <p>Upload notes</p>
+                            <p style="font-size: 1.5rem">+</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
