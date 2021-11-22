@@ -10,4 +10,6 @@ public interface UserService {
     User save(User user);
     void delete(User user);
     User login(User user);
+    void favourite(long userId, long courseId);
+    void removeFavourite(long userId, long courseId);
 }

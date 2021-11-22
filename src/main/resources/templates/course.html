@@ -21,14 +21,11 @@
         <div class="file-section">
             <div class="container-large">
                 <h2>Notes</h2>
+                <form id="favourite-form" th:action="@{/course/{id}/favourite(id=${course.id})}" method="post">
+                    <button class="splash-button" type="submit" form="favourite-form" value="Submit">Add to my courses</button>
+                </form>
                 <div>
                     <!-- File card -->
-                    <a th:if="${loggedInUser}" th:href="@{/course/{id}/favorite(id=${course.id})}">
-                        <div class="splash-button upload-button">
-                            <p>Upload notes</p>
-                            <p style="font-size: 1.5rem">+</p>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>

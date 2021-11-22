@@ -47,4 +47,14 @@ public class UserServiceImplementation implements UserService {
         }
         return null;
     }
+
+    @Override
+    public void favourite(long userId, long courseId) {
+        userRepository.favourite(userId, courseId);
+    }
+
+    @Override
+    public void removeFavourite(long userId, long courseId) {
+        userRepository.removeFavourite(userId, courseId);
+    }
 }

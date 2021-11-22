@@ -123,13 +123,24 @@ public class UserController {
         return "profile";
     }
 
-    @RequestMapping(value = "/course/{id}", method = RequestMethod.POST)
-    public String favoritePOST(User user, BindingResult result, Model model, HttpSession session){
-        if(user != null){
-            return "/course/{id}";
-        }
+    @RequestMapping(value = "/course/{id}/favourite", method = RequestMethod.POST)
+    public String favoritePOST(@PathVariable("id") long id, HttpSession session){
+        // get logged in user
+        User userSession = (User) session.getAttribute("loggedInUser");
 
-        return "/course/{id}";
+        userService.favourite(userSession.getId(), id);
+
+        return "redirect:/course/{id}";
+    }
+
+    @RequestMapping(value = "/course/{id}/favourite/remove", method = RequestMethod.POST)
+    public String favoriteRemovePOST(@PathVariable("id") long id, HttpSession session){
+        // get logged in user
+        User userSession = (User) session.getAttribute("loggedInUser");
+
+        userService.removeFavourite(userSession.getId(), id);
+
+        return "redirect:/course/{id}";
     }
 
 }
