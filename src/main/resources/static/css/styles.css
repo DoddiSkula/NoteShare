@@ -80,6 +80,7 @@ button:focus {
 }
 
 .founder-abt {
+    width: 100%;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -107,8 +108,7 @@ button:focus {
 }
 
 .founder-img{
-    min-height: 300px;
-    max-height: 300px;
+    max-height: 250px;
 }
 
 .flex {
@@ -195,6 +195,7 @@ button:focus {
 }
 
 .splash-page {
+    width: 400px;
     height: 60vh;
     display: flex;
     align-items: center;
@@ -506,7 +507,7 @@ button:focus {
 }
 
 
-@media (max-width: 880px) {
+@media (max-width: 1000px) {
     .container, .container-large {
         margin-right: 2rem;
         margin-left: 2rem;
@@ -572,6 +573,10 @@ button:focus {
 
     .course-card {
         width: 100%;
+    }
+
+    .founder-img{
+        max-height: 0px;
     }
 
 }
