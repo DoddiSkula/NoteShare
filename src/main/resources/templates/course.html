@@ -17,16 +17,20 @@
 <!-- Content -->
 <div class="content">
     <div class="course-page">
-        <h1 class=" container-large course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
-        <div class="file-section">
-            <div class="container-large">
-                <h2>Notes</h2>
+        <div class="container-large">
+            <h1 class="course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
+            <div th:if="${loggedInUser}">
                 <form th:if="${!isFavourited}" id="favourite-form" th:action="@{/course/{id}/favourite(id=${course.id})}" method="post">
                     <button class="splash-button" type="submit" form="favourite-form" value="Submit">Add to my courses</button>
                 </form>
-                <form th:if="${isFavourited}" id="removefavourite-form" th:action="@{/course/{id}/favourite/remove(id=${course.id})}" method="post">
-                    <button class="splash-button" type="submit" form="removefavourite-form" value="Submit">Remove from my courses</button>
+                <form th:if="${isFavourited}" id="removeFavourite-form" th:action="@{/course/{id}/favourite/remove(id=${course.id})}" method="post">
+                    <button class="splash-button" type="submit" form="removeFavourite-form" value="Submit">Remove from my courses</button>
                 </form>
+            </div>
+        </div>
+        <div class="file-section">
+            <div class="container-large">
+                <h2>Notes</h2>
                 <div>
                     <!-- File card -->
                 </div>

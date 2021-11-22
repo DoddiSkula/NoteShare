@@ -49,8 +49,7 @@ public class FileController {
 
     @RequestMapping(value = "/course/{id}/upload", method = RequestMethod.POST)
     public String coursePOST(@PathVariable("id") long id, FileUpload file, BindingResult result, Model model, HttpSession session) throws IOException {
-        if(result.hasErrors()){
-            System.out.println(result.getAllErrors());
+        if(result.hasErrors() || file.getFileFormat().isEmpty()){
             return "redirect:/course/{id}";
         }
 
