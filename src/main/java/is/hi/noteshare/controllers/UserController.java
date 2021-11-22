@@ -143,4 +143,5 @@ public class UserController {
         return "redirect:/course/{id}";
     }
 
+
 }

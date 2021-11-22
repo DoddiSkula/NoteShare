@@ -21,8 +21,11 @@
         <div class="file-section">
             <div class="container-large">
                 <h2>Notes</h2>
-                <form id="favourite-form" th:action="@{/course/{id}/favourite(id=${course.id})}" method="post">
+                <form th:if="${!isFavourited}" id="favourite-form" th:action="@{/course/{id}/favourite(id=${course.id})}" method="post">
                     <button class="splash-button" type="submit" form="favourite-form" value="Submit">Add to my courses</button>
+                </form>
+                <form th:if="${isFavourited}" id="removefavourite-form" th:action="@{/course/{id}/favourite/remove(id=${course.id})}" method="post">
+                    <button class="splash-button" type="submit" form="removefavourite-form" value="Submit">Remove from my courses</button>
                 </form>
                 <div>
                     <!-- File card -->

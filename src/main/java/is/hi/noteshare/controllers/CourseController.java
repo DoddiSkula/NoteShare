@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class CourseController {
@@ -31,6 +32,7 @@ public class CourseController {
         User userSession = (User) session.getAttribute("loggedInUser");
         if(userSession != null) {
             model.addAttribute("loggedInUser", userSession);
+            model.addAttribute("isFavourited", userSession.getCourses().contains(course));
         }
 
         model.addAttribute("course", course);
