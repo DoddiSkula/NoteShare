@@ -118,6 +118,7 @@ public class UserController {
             if (userSession != null) {
                 model.addAttribute("loggedInUser", userSession);
                 model.addAttribute("isOwner", Objects.equals(userSession.getEmail(), user.getEmail()));
+                //model.addAttribute("isFavorited", Objects.equals(userSession.getCourses(),));
             }
         }
         return "profile";
