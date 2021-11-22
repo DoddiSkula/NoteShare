@@ -4,6 +4,7 @@
     <title>NoteShare - Upload</title>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
+    <link rel="icon" type="image/x-icon" href="../static/icons/notebook.png" th:href="@{/icons/notebook.png}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
         <h1 class=" container-large course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
         <div class="file-section upload-section">
             <h2>Upload notes</h2>
-            <form class="form-file" id="file-form">
+            <form class="form-file" id="file-form" method="post">
                 <input type="text" id="title" name="title" placeholder="Title" autocomplete="off">
                 <textarea  id="desc" name="desc" placeholder="Description" autocomplete="off"></textarea>
                 <input type="file" id="file" name="file" accept=".pdf">

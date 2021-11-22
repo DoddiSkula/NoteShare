@@ -6,34 +6,45 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "files")
+@Table(name = "files", schema = "public")
 public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
     private Course course;
 
+    @Column(name = "date")
     private Date date;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "file_name")
+    private String fileName;
 
-    @OneToMany(mappedBy = "file", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments = new ArrayList<>();
+    @Column(name = "likes")
+    private int likes;
 
     public File(){}
 
-    public File(Date date, String title, String description, User user){
+    public File(Date date, String title, String description, User user, String fileName, int likes){
         this.date = date;
         this.title = title;
         this.description = description;
         this.user = user;
+        this.fileName = fileName;
+        this.likes = likes;
     }
 
     public long getId() {
@@ -84,11 +95,11 @@ public class File {
         this.course = course;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
+    public String getFileName() { return fileName; }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
+    public void setFileName(String fileName) { this.fileName = fileName; }
+
+    public int getLikes() { return likes; }
+
+    public void setLikes(int likes) { this.likes = likes; }
 }

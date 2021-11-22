@@ -36,12 +36,13 @@ DROP TABLE IF EXISTS files CASCADE;
 CREATE TABLE files (
     id serial primary key,
     user_id bigint references users(id),
+    course_id bigint references courses(id),
     title varchar(255),
     date date,
     description text,
     likes int,
     file_name varchar(255),
-    source varchar(2555)
+    data bytea
 );
 
 DROP TABLE IF EXISTS comments CASCADE;

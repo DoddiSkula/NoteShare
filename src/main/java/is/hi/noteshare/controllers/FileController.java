@@ -5,6 +5,7 @@ import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.services.CourseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,4 +34,19 @@ public class FileController {
 
         return "upload";
     }
+
+    @RequestMapping(value = "/course/{id}/upload", method = RequestMethod.POST)
+    public String coursePOST(@PathVariable("id") long id, BindingResult result, Model model, HttpSession session) {
+        if(result.hasErrors()){
+            System.out.println(result.getAllErrors());
+            return "redirect:/course/{id}";
+        }
+
+        Course course = courseService.findById(id);
+        User userSession = (User) session.getAttribute("loggedInUser");
+
+
+        return "redirect:/course/{id}";
+    }
+
 }
