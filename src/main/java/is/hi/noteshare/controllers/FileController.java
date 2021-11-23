@@ -1,13 +1,11 @@
 package is.hi.noteshare.controllers;
 
-import com.sun.istack.NotNull;
 import is.hi.noteshare.persistence.entities.Course;
 import is.hi.noteshare.persistence.entities.File;
 import is.hi.noteshare.persistence.entities.FileUpload;
 import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.services.CourseService;
 import is.hi.noteshare.services.FileService;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +22,7 @@ import java.util.Date;
 /*
     Endpoints:
     course/:id/upload (GET, POST)
+    file/:fileId (GET)
  */
 
 @Controller
@@ -74,7 +73,7 @@ public class FileController {
 
         return "redirect:/course/{id}";
     }
-    
+
     @RequestMapping(value = "/file/{fileId}", method = RequestMethod.GET, produces = "application/pdf")
     public @ResponseBody byte[] fileGET(@PathVariable("fileId") long fileId) throws IOException {
         File file = fileService.findById(fileId);
