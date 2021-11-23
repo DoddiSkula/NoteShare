@@ -18,17 +18,23 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Objects;
 
+/*
+    Endpoints:
+    signup (GET, POST)
+    login (GET, POST)
+    logout (POST)
+    user/:username (GET)
+ */
+
 @Controller
 public class UserController {
     private final UserService userService;
     private final SchoolService schoolService;
-    private final CourseService courseService;
 
     @Autowired
-    public UserController(UserService userService, SchoolService schoolService, CourseService courseService){
+    public UserController(UserService userService, SchoolService schoolService){
         this.userService = userService;
         this.schoolService = schoolService;
-        this.courseService = courseService;
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -126,32 +132,5 @@ public class UserController {
         }
         return "profile";
     }
-
-    @RequestMapping(value = "/course/{id}/favourite", method = RequestMethod.POST)
-    public String favoritePOST(@PathVariable("id") long id, HttpSession session){
-        // get course
-        Course course = courseService.findById(id);
-
-        // get logged in user
-        User userSession = (User) session.getAttribute("loggedInUser");
-
-        userSession.getCourses().add(course);
-        userService.favourite(userSession.getId(), id);
-
-        return "redirect:/course/{id}";
-    }
-
-    @RequestMapping(value = "/course/{id}/favourite/remove", method = RequestMethod.POST)
-    public String favoriteRemovePOST(@PathVariable("id") long id, HttpSession session){
-        // get logged in user
-        User userSession = (User) session.getAttribute("loggedInUser");
-
-        // remove from db and session
-        userService.removeFavouritedSession(userSession, id);
-        userService.removeFavourite(userSession.getId(), id);
-
-        return "redirect:/course/{id}";
-    }
-
 
 }

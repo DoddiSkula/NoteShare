@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/*
+    Endpoints:
+    / (GET)
+    search (POST)
+    about (GET)
+    contact (GET)
+ */
 
 @Controller
 public class HomeController {
