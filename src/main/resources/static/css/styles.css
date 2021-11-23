@@ -346,6 +346,30 @@ button:focus {
     overflow: hidden;
 }
 
+.file-card {
+    width: 150px;
+    height: 265px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    padding: 1rem;
+    box-shadow:  0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #E8E8E8;
+}
+
+.file-img{
+    width: 150px;
+    height: 220px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.file-detail{
+    width: 150px;
+    height: 50px;
+    background-color: #F8F8F8;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .course-list-item:nth-child(3n-1) {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
