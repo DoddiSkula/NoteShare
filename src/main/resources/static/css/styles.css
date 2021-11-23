@@ -477,6 +477,14 @@ button:focus {
     color: #4B4B4B;
 }
 
+.error-page{
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    text-align: center;
+}
+
+
 .input-note {
     color: #717171;
     font-size: 0.75rem;
@@ -607,6 +615,7 @@ button:focus {
     .founder-img{
         max-height: 0px;
     }
+
 
 
 }
