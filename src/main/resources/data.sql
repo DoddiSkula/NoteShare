@@ -18,7 +18,6 @@ insert into subjects(subject) values('Mechatronics Engineering');
 insert into subjects(subject) values('Department of Psychology');
 
 
-
 -- users
 insert into users(school_id, username, password, email, admin) values (1, 'admin', 'admin', 'admin@admin.com', true);
 
@@ -128,8 +127,7 @@ insert into user_courses(user_id, course_id) values (1, 6);
 insert into user_courses(user_id, course_id) values (1, 7);
 
 
-
-/* more subjects
+-- more subjects
 insert into subjects(subject) values('Anthropology');
 insert into subjects(subject) values('Applied Inter-American Studies');
 insert into subjects(subject) values('Applied Statistics');
@@ -207,4 +205,3 @@ insert into subjects(subject) values('Statistics');
 insert into subjects(subject) values('Swedish');
 insert into subjects(subject) values('Tourism Studies');
 insert into subjects(subject) values('Viking and Medieval Norse Studies');
-*/

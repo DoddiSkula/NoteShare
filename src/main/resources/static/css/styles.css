@@ -364,6 +364,9 @@ button:focus {
 .course-card h3 {
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .course-card .school-name {
@@ -587,6 +590,12 @@ button:focus {
 
     .course-card {
         width: 100%;
+    }
+
+    .course-card h3 {
+        width: 75%;
+        overflow: hidden;
+        white-space: normal;
     }
 
     .founder-img{
