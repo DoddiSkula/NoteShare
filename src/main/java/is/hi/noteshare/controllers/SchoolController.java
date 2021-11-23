@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 public class SchoolController {
-    private SchoolService schoolService;
+    private final SchoolService schoolService;
 
     @Autowired
     public SchoolController(SchoolService schoolService){

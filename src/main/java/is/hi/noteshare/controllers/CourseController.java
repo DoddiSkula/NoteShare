@@ -15,6 +15,13 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Objects;
 
+/*
+    Endpoints:
+    course/:id (GET)
+    course/:id/favourite (POST)
+    course/:id/remove (POST)
+ */
+
 @Controller
 public class CourseController {
     private final UserService userService;
@@ -40,6 +47,32 @@ public class CourseController {
         model.addAttribute("course", course);
 
         return "course";
+    }
+
+    @RequestMapping(value = "/course/{id}/favourite", method = RequestMethod.POST)
+    public String favoritePOST(@PathVariable("id") long id, HttpSession session){
+        // get course
+        Course course = courseService.findById(id);
+
+        // get logged in user
+        User userSession = (User) session.getAttribute("loggedInUser");
+
+        userSession.getCourses().add(course);
+        userService.favourite(userSession.getId(), id);
+
+        return "redirect:/course/{id}";
+    }
+
+    @RequestMapping(value = "/course/{id}/remove", method = RequestMethod.POST)
+    public String favoriteRemovePOST(@PathVariable("id") long id, HttpSession session){
+        // get logged in user
+        User userSession = (User) session.getAttribute("loggedInUser");
+
+        // remove from db and session
+        userService.removeFavouritedSession(userSession, id);
+        userService.removeFavourite(userSession.getId(), id);
+
+        return "redirect:/course/{id}";
     }
 
 }

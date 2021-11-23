@@ -20,6 +20,11 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 
+/*
+    Endpoints:
+    course/:id/upload (GET, POST)
+ */
+
 @Controller
 public class FileController {
     private final CourseService courseService;
