@@ -1,7 +1,9 @@
 package is.hi.noteshare.controllers;
 
+import is.hi.noteshare.persistence.entities.Course;
 import is.hi.noteshare.persistence.entities.School;
 import is.hi.noteshare.persistence.entities.User;
+import is.hi.noteshare.services.CourseService;
 import is.hi.noteshare.services.SchoolService;
 import is.hi.noteshare.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,13 @@ import java.util.Objects;
 public class UserController {
     private final UserService userService;
     private final SchoolService schoolService;
+    private final CourseService courseService;
 
     @Autowired
-    public UserController(UserService userService, SchoolService schoolService){
+    public UserController(UserService userService, SchoolService schoolService, CourseService courseService){
         this.userService = userService;
         this.schoolService = schoolService;
+        this.courseService = courseService;
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -125,9 +129,13 @@ public class UserController {
 
     @RequestMapping(value = "/course/{id}/favourite", method = RequestMethod.POST)
     public String favoritePOST(@PathVariable("id") long id, HttpSession session){
+        // get course
+        Course course = courseService.findById(id);
+
         // get logged in user
         User userSession = (User) session.getAttribute("loggedInUser");
 
+        userSession.getCourses().add(course);
         userService.favourite(userSession.getId(), id);
 
         return "redirect:/course/{id}";
@@ -138,6 +146,8 @@ public class UserController {
         // get logged in user
         User userSession = (User) session.getAttribute("loggedInUser");
 
+        // remove from db and session
+        userService.removeFavouritedSession(userSession, id);
         userService.removeFavourite(userSession.getId(), id);
 
         return "redirect:/course/{id}";
