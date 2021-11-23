@@ -22,10 +22,10 @@
         <div class="user-info">
             <div class="userinfo1">
             <div class ="user-pic">
-                <img th:src="@{/img/anonon.png}">
+                <img src="../img/anon.png">
             </div>
             <form th:if="${isOwner}" class="logout" id="logout" th:action="@{/logout}" method="post">
-                <input class="logout-submit" type="submit" value="Logout">
+                <input class="filter-submit" type="submit" value="Logout" size="50">
             </form>
             </div>
             <div class="user-text">
