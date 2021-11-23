@@ -345,10 +345,23 @@ button:focus {
     margin-bottom: 1.5rem;
     overflow: hidden;
 }
+.file-list{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 52vh;
+}
+
+.file-list-item:nth-child(6n-1){
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
 
 .file-card {
     width: 150px;
-    height: 265px;
+    height: 220px;
     margin-bottom: 1.5rem;
     overflow: hidden;
     padding: 1rem;
@@ -356,9 +369,33 @@ button:focus {
     background-color: #E8E8E8;
 }
 
+.file-card:hover {
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(0deg, rgba(46,211,255,1) 0%, rgba(234,134,251,1) 100%);
+}
+
+file-card p{
+    color: #686868;
+}
+
+file-card h3{
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.file-card .school-name {
+    color: #A3A3A3;
+    font-size: 0.75rem;
+}
+
 .file-img{
     width: 150px;
-    height: 220px;
+    height: 150px;
+    padding: 1rem;
     background-color: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -634,6 +671,17 @@ button:focus {
         width: 75%;
         overflow: hidden;
         white-space: normal;
+    }
+
+    file-list{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 50vh;
+    }
+
+    .file-list-item:nth-child(6n-1){
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .founder-img{
