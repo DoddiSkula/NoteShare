@@ -18,7 +18,7 @@ public class FileServiceImplementation implements FileService{
     }
 
     @Override
-    public List<File> findById(long id){ return fileRepository.findById(id); }
+    public File findById(long id){ return fileRepository.findById(id); }
 
     @Override
     public List<File> findAll(){

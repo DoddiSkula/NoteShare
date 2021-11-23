@@ -8,7 +8,7 @@ import java.util.List;
 public interface FileRepository  extends JpaRepository<File, Long>{
     File save(File file);
     void delete(File file);
-    List<File> findById(long id);
+    File findById(long id);
     List<File> findAll();
     List<File> findByCourse(long id);
 }

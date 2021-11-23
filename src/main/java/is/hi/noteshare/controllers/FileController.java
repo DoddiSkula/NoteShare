@@ -1,23 +1,24 @@
 package is.hi.noteshare.controllers;
 
+import com.sun.istack.NotNull;
 import is.hi.noteshare.persistence.entities.Course;
 import is.hi.noteshare.persistence.entities.File;
 import is.hi.noteshare.persistence.entities.FileUpload;
 import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.services.CourseService;
 import is.hi.noteshare.services.FileService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
-
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Date;
 
 /*
@@ -51,7 +52,6 @@ public class FileController {
         return "upload";
     }
 
-
     @RequestMapping(value = "/course/{id}/upload", method = RequestMethod.POST)
     public String coursePOST(@PathVariable("id") long id, FileUpload file, BindingResult result, Model model, HttpSession session) throws IOException {
         if(result.hasErrors() || file.getFileFormat().isEmpty()){
@@ -73,6 +73,12 @@ public class FileController {
         fileService.save(uploadedFile);
 
         return "redirect:/course/{id}";
+    }
+    
+    @RequestMapping(value = "/file/{fileId}", method = RequestMethod.GET, produces = "application/pdf")
+    public @ResponseBody byte[] fileGET(@PathVariable("fileId") long fileId) throws IOException {
+        File file = fileService.findById(fileId);
+        return file.getData();
     }
 
 }

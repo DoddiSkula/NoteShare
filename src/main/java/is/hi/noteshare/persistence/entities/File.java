@@ -1,5 +1,6 @@
 package is.hi.noteshare.persistence.entities;
 
+import com.sun.istack.NotNull;
 import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 
@@ -34,7 +35,7 @@ public class File {
 
     @Column(name = "likes")
     private int likes;
-
+    
     @Column(name = "data")
     private byte[] data;
 
