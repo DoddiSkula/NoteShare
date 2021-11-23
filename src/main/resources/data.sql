@@ -80,7 +80,6 @@ insert into courses(school_id, degree_id, short_name, name) values (2, 2, 'E-801
 insert into course_subjects(course_id, subject_id) values(1, 1);
 insert into course_subjects(course_id, subject_id) values(1, 3);
 insert into course_subjects(course_id, subject_id) values(2, 4);
-insert into course_subjects(course_id, subject_id) values(1, 4);
 insert into course_subjects(course_id, subject_id) values(2, 1);
 insert into course_subjects(course_id, subject_id) values(4, 2);
 insert into course_subjects(course_id, subject_id) values(5, 2);
