@@ -146,6 +146,8 @@ public class UserController {
         // get logged in user
         User userSession = (User) session.getAttribute("loggedInUser");
 
+        // remove from db and session
+        userService.removeFavouritedSession(userSession, id);
         userService.removeFavourite(userSession.getId(), id);
 
         return "redirect:/course/{id}";

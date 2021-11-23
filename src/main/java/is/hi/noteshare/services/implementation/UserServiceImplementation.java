@@ -1,5 +1,6 @@
 package is.hi.noteshare.services.implementation;
 
+import is.hi.noteshare.persistence.entities.Course;
 import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.persistence.repositories.UserRepository;
 import is.hi.noteshare.services.UserService;
@@ -56,5 +57,23 @@ public class UserServiceImplementation implements UserService {
     @Override
     public void removeFavourite(long userId, long courseId) {
         userRepository.removeFavourite(userId, courseId);
+    }
+
+    @Override
+    public boolean isFavourited(User user, long courseId) {
+        for(Course course : user.getCourses()){
+            if(course.getId() == courseId) return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void removeFavouritedSession(User user, long courseId) {
+        for(Course course: user.getCourses()) {
+            if(course.getId() == courseId) {
+                user.getCourses().remove(course);
+                return;
+            }
+        }
     }
 }

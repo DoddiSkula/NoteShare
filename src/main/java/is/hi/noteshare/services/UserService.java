@@ -12,4 +12,6 @@ public interface UserService {
     User login(User user);
     void favourite(long userId, long courseId);
     void removeFavourite(long userId, long courseId);
+    boolean isFavourited(User user, long courseId);
+    void removeFavouritedSession(User user, long courseId);
 }
