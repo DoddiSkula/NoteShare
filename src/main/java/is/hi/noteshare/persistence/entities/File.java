@@ -60,8 +60,8 @@ public class File {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return date.toString().substring(0,11);
     }
 
     public void setDate(Date date) {
@@ -111,4 +111,5 @@ public class File {
     public byte[] getData() { return data; }
 
     public void setData(byte[] data) { this.data = data; }
+
 }

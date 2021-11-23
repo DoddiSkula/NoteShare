@@ -263,6 +263,3 @@ insert into user_courses(user_id, course_id) values (1, 4);
 insert into user_courses(user_id, course_id) values (1, 5);
 insert into user_courses(user_id, course_id) values (1, 6);
 insert into user_courses(user_id, course_id) values (1, 7);
-
-
-

@@ -1,6 +1,7 @@
 package is.hi.noteshare.persistence.entities;
 
 import javax.persistence.*;
+import java.nio.file.Files;
 import java.util.List;
 
 @Entity
@@ -84,4 +85,5 @@ public class Course {
     public List<User> getUsers() { return users; }
 
     public void setUsers(List<User> users) { this.users = users; }
+
 }

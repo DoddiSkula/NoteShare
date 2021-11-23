@@ -9,4 +9,5 @@ public interface FileService {
     List<File> findAll();
     File save(File file);
     void delete(File file);
+    List<File> findByCourse(long id);
 }

@@ -1,8 +1,10 @@
 package is.hi.noteshare.controllers;
 
 import is.hi.noteshare.persistence.entities.Course;
+import is.hi.noteshare.persistence.entities.File;
 import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.services.CourseService;
+import is.hi.noteshare.services.FileService;
 import is.hi.noteshare.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,16 +28,19 @@ import java.util.Objects;
 public class CourseController {
     private final UserService userService;
     private final CourseService courseService;
+    private final FileService fileService;
 
     @Autowired
-    public CourseController(CourseService courseService, UserService userService) {
+    public CourseController(CourseService courseService, UserService userService, FileService fileService) {
         this.courseService = courseService;
         this.userService = userService;
+        this.fileService = fileService;
     }
 
     @RequestMapping(value = "/course/{id}", method = RequestMethod.GET)
     public String courseGET(@PathVariable("id") long id, Model model, HttpSession session) {
         Course course = courseService.findById(id);
+        List<File> files = fileService.findByCourse(id);
 
         // get logged in user
         User userSession = (User) session.getAttribute("loggedInUser");
@@ -45,6 +50,7 @@ public class CourseController {
         }
 
         model.addAttribute("course", course);
+        model.addAttribute("files", files);
 
         return "course";
     }

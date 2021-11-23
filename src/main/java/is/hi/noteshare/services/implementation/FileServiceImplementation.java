@@ -34,4 +34,9 @@ public class FileServiceImplementation implements FileService{
     public void delete(File file){
         fileRepository.delete(file);
     }
+
+    @Override
+    public List<File> findByCourse(long id) {
+        return fileRepository.findByCourse(id);
+    }
 }
