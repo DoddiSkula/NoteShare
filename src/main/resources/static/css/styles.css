@@ -377,6 +377,7 @@ button:focus {
 }
 
 file-card p{
+    padding-left: 1rem;
     color: #686868;
 }
 
@@ -395,7 +396,8 @@ file-card h3{
 
 .file-img{
     width: 150px;
-    height: 150px;
+    height: 100px;
+    margin-top: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -403,7 +405,6 @@ file-card h3{
 .file-detail{
     width: 150px;
     height: 50px;
-    margin-top: 10px;
     background-color: #F8F8F8;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -680,7 +681,7 @@ file-card h3{
         height: 50vh;
     }
 
-    .file-list-item:nth-child(6n-1){
+    .file-list-item:nth-child(7n-1){
         margin-left: 0;
         margin-right: 0;
     }
