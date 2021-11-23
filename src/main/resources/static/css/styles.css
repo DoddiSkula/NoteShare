@@ -520,7 +520,13 @@ button:focus {
     align-items: center;
 }
 
+@media (max-width: 1280px) {
+    .container,  .container-large{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
 
+}
 @media (max-width: 1000px) {
     .container, .container-large {
         margin-right: 2rem;
