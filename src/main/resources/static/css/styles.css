@@ -388,8 +388,22 @@ button:focus {
     align-items: flex-end;
     justify-content: center;
 }
-.logout input{
-    align-items: flex-end;
+
+.logout{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.logout-submit{
+    width: 100px;
+    height: 35px;
+    background-color: #E8E8E8;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    align-items: center;
     margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
@@ -578,5 +592,6 @@ button:focus {
     .founder-img{
         max-height: 0px;
     }
+
 
 }
