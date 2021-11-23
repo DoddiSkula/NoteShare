@@ -361,10 +361,11 @@ button:focus {
 
 .file-card {
     width: 150px;
-    height: 220px;
+    height: 180px;
     margin-bottom: 1.5rem;
     overflow: hidden;
-    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     box-shadow:  0 4px 4px rgba(0, 0, 0, 0.25);
     background-color: #E8E8E8;
 }
@@ -382,7 +383,7 @@ file-card p{
 file-card h3{
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
-    width: 200px;
+    width: 150px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -395,7 +396,6 @@ file-card h3{
 .file-img{
     width: 150px;
     height: 150px;
-    margin-top: 70px;
     background-color: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -403,7 +403,7 @@ file-card h3{
 .file-detail{
     width: 150px;
     height: 50px;
-    margin-top: 170px;
+    margin-top: 10px;
     background-color: #F8F8F8;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
