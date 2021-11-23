@@ -395,7 +395,7 @@ file-card h3{
 .file-img{
     width: 150px;
     height: 150px;
-    padding: 1rem;
+    margin-top: 70px;
     background-color: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -403,6 +403,7 @@ file-card h3{
 .file-detail{
     width: 150px;
     height: 50px;
+    margin-top: 170px;
     background-color: #F8F8F8;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -686,6 +687,16 @@ file-card h3{
 
     .founder-img{
         max-height: 0px;
+    }
+
+    file-card {
+        width: 100%;
+    }
+
+    file-card h3{
+        width: 75%;
+        overflow: hidden;
+        white-space: normal;
     }
 
 
