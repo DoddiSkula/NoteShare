@@ -44,7 +44,7 @@
         <h2 th:if="${isOwner}"><span style="font-weight: 700">My</span> uploads</h2>
         <h2 th:if="${!isOwner}">Uploads</h2>
         <!-- File list -->
-        <div th:replace="fragments/userFileList :: userFileList"></div>
+        <div th:replace="fragments/fileList :: fileList"></div>
     </div>
 
     <!-- Courses -->
