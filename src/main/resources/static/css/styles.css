@@ -54,6 +54,10 @@ button:focus {
     outline: none;
 }
 
+textarea:focus {
+    outline: none;
+}
+
 .content {
     margin-top: 60px;
 }
@@ -66,49 +70,6 @@ button:focus {
 .container-large {
     max-width: 1280px;
     margin: auto;
-}
-
-.founder{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.ourFounders{
-    font-family: Arial;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.founder-abt {
-    width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.founder-title {
-    font-family: "Arial Black";
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 1px;
-}
-
-.founder-nick {
-    font-family: "Comic Sans MS";
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.founder-text {
-    font-size: 18px;
-}
-
-.founder{
-    display: flex;
-    justify-content: space-between;
-}
-
-.founder-img{
-    max-height: 250px;
 }
 
 .flex {
@@ -240,7 +201,7 @@ button:focus {
 
 .splash-about {
     height: 30vh;
-    background-color: #F5F5F5;
+    background-color: #EEEEEE;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -429,6 +390,50 @@ button:focus {
     margin-top: 10px;
 }
 
+/* About */
+.founder{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ourFounders{
+    font-family: Arial;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.founder-abt {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.founder-title {
+    font-family: "Arial Black";
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.founder-nick {
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.founder-text {
+    font-size: 18px;
+}
+
+.founder{
+    display: flex;
+    justify-content: space-between;
+}
+
+.founder-img{
+    max-height: 250px;
+}
+
 
 /* User profile */
 .user-info{
@@ -438,8 +443,8 @@ button:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #F8F8F8;
-    margin-bottom: 1rem;
+    background: #EEEEEE;
+    margin-bottom: 2rem;
 }
 
 .user-info p {
@@ -456,7 +461,7 @@ button:focus {
 .logout-submit{
     width: 100px;
     height: 35px;
-    background-color: #E8E8E8;
+    background-color: #F8F8F8;
     border: none;
     border-radius: 7px;
     font-family: 'Roboto', sans-serif;
@@ -466,6 +471,7 @@ button:focus {
 
 .user-files {
     margin-bottom: 2rem;
+    height: 60vh;
 }
 
 /* Signup/login */
@@ -500,7 +506,7 @@ button:focus {
     margin-bottom: 2rem;
 }
 
-.form-user > input, .form-user > select, .form-file > input, .form-file > select, .form-file > textarea {
+.form-user > input, .form-user > select, .form-file > input[type=text], .form-file > select, .form-file > textarea {
     width: 340px;
     height: 40px;
     margin-top: 1.5rem;
@@ -514,6 +520,12 @@ button:focus {
 .form-file > textarea {
     resize: none;
     padding-top: 0.5rem;
+    height: 80px;
+}
+
+.form-file > input[type=file] {
+    margin-top: 1.5rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .form-user > input::placeholder, .form-file > input::placeholder {
@@ -543,6 +555,7 @@ button:focus {
 
 .course-title {
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .course-page {
@@ -589,8 +602,10 @@ button:focus {
 .upload-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #F8F8F8;
 }
 
 @media (max-width: 1280px) {
@@ -693,7 +708,5 @@ button:focus {
         overflow: hidden;
         white-space: normal;
     }
-
-
 
 }

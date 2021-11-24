@@ -15,25 +15,21 @@
 <div th:replace="fragments/header :: header"></div>
 
 <!-- Content -->
-<div class="content">
-    <div class="course-page">
-        <h1 class=" container-large course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
-        <div class="file-section upload-section">
-            <h2>Upload notes</h2>
-            <form class="form-file" id="file-form" th:action="@{/course/{id}/upload(id=${course.id})}" method="post" th:object="${file}" enctype="multipart/form-data">
-                <input th:field="*{title}" type="text" id="title" name="title" placeholder="Title" autocomplete="off" required>
-                <textarea th:field="*{description}" id="desc" name="desc" placeholder="Description" autocomplete="off"></textarea>
-                <input th:field="*{fileFormat}" type="file" id="file" name="file" accept=".pdf" multiple="multiple" required>
-                <p class="input-note">Note: File has to be on pdf format</p>
-            </form>
-            <button class="splash-button" type="submit" form="file-form" value="Submit">Upload file</button>
-            <a th:href="@{/course/{id}(id=${course.id})}">
-                <p>Cancel</p>
-            </a>
-        </div>
-
-    </div>
+<div class="upload-section">
+    <h1 class="course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
+    <h2>Upload notes</h2>
+    <form class="form-file" id="file-form" th:action="@{/course/{id}/upload(id=${course.id})}" method="post" th:object="${file}" enctype="multipart/form-data">
+        <input th:field="*{title}" type="text" id="title" name="title" placeholder="Title" autocomplete="off" required>
+        <textarea th:field="*{description}" id="desc" name="desc" placeholder="Description" autocomplete="off"></textarea>
+        <input th:field="*{fileFormat}" type="file" id="file" name="file" accept=".pdf" multiple="multiple" required>
+        <p class="input-note">Note: File has to be on pdf format</p>
+    </form>
+    <button class="splash-button" type="submit" form="file-form" value="Submit">Upload file</button>
+    <a th:href="@{/course/{id}(id=${course.id})}">
+        <p>Cancel</p>
+    </a>
 </div>
+
 
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
