@@ -136,6 +136,7 @@ public class UserController {
                 model.addAttribute("isOwner", Objects.equals(userSession.getEmail(), user.getEmail()));
             }
 
+            // get files
             List<File> files = fileService.findByUser(user.getId());
             Map<File, String> map = new HashMap<File, String>();
             for(File file: files) {

@@ -432,26 +432,25 @@ button:focus {
 
 /* User profile */
 .user-info{
-    display: flex;
-    flex-direction: row;
-}
-.userinfo1{
+    height: 40vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 60%;
-}
-
-.user-pic{
-    display: flex;
-    width: 100%;
-    align-items: flex-end;
     justify-content: center;
+    align-items: center;
+    background: #F8F8F8;
+    margin-bottom: 1rem;
 }
 
-.logout{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
+.user-info p {
+    margin-top: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.user-pic {
+    width: 125px;
+    height: 125px;
 }
 
 .logout-submit{
@@ -462,25 +461,13 @@ button:focus {
     border-radius: 7px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-    align-items: center;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 0.5rem;
 }
 
-.user-text{
-    display: flex;
-    width: 40%;
-    margin-left: 3rem;
-}
-.user-text li{
-    margin-bottom: 1rem;
+.user-files {
+    margin-bottom: 2rem;
 }
 
-.user-text ul{
-    justify-content: center;
-    margin-top: 3rem;
-}
 /* Signup/login */
 .form-page {
     display: flex;

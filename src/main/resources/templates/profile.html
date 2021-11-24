@@ -18,41 +18,23 @@
 <div class="content">
 
     <!-- User info -->
-    <div class="container">
-        <div class="user-info">
-            <div class="userinfo1">
-            <div class ="user-pic">
-                <img th:src="@{/img/anon.png}" alt="profile picture">
-            </div>
-            <form th:if="${isOwner}" class="logout" id="logout" th:action="@{/logout}" method="post">
-                <input class="logout-submit" type="submit" value="Logout" size="50">
-            </form>
-            </div>
-            <div class="user-text">
-                <ul>
-                    <li th:text="'Name: ' + ${user.username}"></li>
-                    <li th:text="'E-mail: ' + ${user.email}"></li>
-                    <li th:text="'School: ' + ${school.name}"></li>
-                    <li th:text="'Files: '"></li>
-                </ul>
-            </div>
-        </div>
+    <div class="user-info">
+        <h2 th:text="${user.username}"></h2>
+        <img class="user-pic" th:src="@{/img/userprofile.svg}" alt="profile-picture">
+        <p th:text="${school.name}"></p>
+        <a th:href="@{'mailto:'+${user.email}}"><p th:text="${user.email}"></p></a>
+        <form th:if="${isOwner != null && isOwner}" class="logout" id="logout" th:action="@{/logout}" method="post">
+            <input class="logout-submit" type="submit" value="Logout" size="50">
+        </form>
     </div>
 
     <!-- Files -->
     <div class="container">
-        <h2 th:if="${isOwner}"><span style="font-weight: 700">My</span> uploads</h2>
-        <h2 th:if="${!isOwner}">Uploads</h2>
+        <h2 th:if="${isOwner != null && isOwner}"><span style="font-weight: 700">My</span> uploads</h2>
+        <h2 th:if="${isOwner == null || (isOwner != null && !isOwner)}">Uploads</h2>
         <!-- File list -->
-        <div th:replace="fragments/fileList :: fileList"></div>
-    </div>
-
-    <!-- Courses -->
-    <div th:if="${isOwner}" class="my-courses">
-        <div class="container">
-            <h2><span style="font-weight: 700">My</span> courses</h2>
-            <!-- Course list -->
-            <div th:replace="fragments/myCourseList :: myCourseList"></div>
+        <div class="user-files" >
+            <div th:replace="fragments/fileList :: fileList"></div>
         </div>
     </div>
 
