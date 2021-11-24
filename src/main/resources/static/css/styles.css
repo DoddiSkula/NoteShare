@@ -391,49 +391,62 @@ textarea:focus {
 }
 
 /* About */
+.about-page {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #EEEEEE;
+    margin-bottom: 2rem;
+}
+
+.about-page h1 {
+    margin-bottom: 2rem;
+}
+
+.founders {
+    margin-bottom: 4rem;
+}
+
+.founders h1 {
+    margin-bottom: 4rem;
+}
+
 .founder{
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.ourFounders{
-    font-family: Arial;
-    font-size: 40px;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .founder-abt {
     width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .founder-title {
-    font-family: "Arial Black";
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 1px;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 .founder-nick {
-    font-family: "Comic Sans MS";
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.founder-text {
-    font-size: 18px;
-}
-
-.founder{
-    display: flex;
-    justify-content: space-between;
+    font-weight: 300;
+    font-size: 1.25rem;
+    margin-top: 6px;
+    margin-bottom: 1rem;
 }
 
 .founder-img{
-    max-height: 250px;
+    max-height: 200px;
+    border-radius: 50%;
 }
 
+.founders hr {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
 
 /* User profile */
 .user-info{
