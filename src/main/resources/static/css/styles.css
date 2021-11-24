@@ -366,6 +366,7 @@ textarea:focus {
 
 .file-card p {
     text-align: center;
+    white-space: nowrap;
     width: inherit;
     color: #686868;
 }
