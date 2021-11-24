@@ -674,26 +674,21 @@ button:focus {
         white-space: normal;
     }
 
-    file-list{
+    .file-list{
         flex-direction: column;
         flex-wrap: nowrap;
         height: 50vh;
-    }
-
-    .file-list-item:nth-child(7n-1){
-        margin-left: 0;
-        margin-right: 0;
     }
 
     .founder-img{
         max-height: 0px;
     }
 
-    file-card {
-        width: 100%;
+    .file-card {
+        width: inherit;
     }
 
-    file-card h3{
+    .file-card h3{
         width: 75%;
         overflow: hidden;
         white-space: normal;
