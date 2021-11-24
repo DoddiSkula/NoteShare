@@ -1,10 +1,11 @@
 <!-- Course list -->
 <div th:fragment="fileList">
     <div class="file-list">
-        <div th:each="file : ${files.entrySet()}">
+        <div th:if="${!files.isEmpty()}" th:each="file : ${files.entrySet()}">
             <a th:href="@{/file/{fileId}(fileId=${file.getKey().id})}" target="_blank">
                 <div th:replace="fragments/filecard :: filecard"></div>
             </a>
         </div>
+        <p th:if="${files.isEmpty()}">No uploaded files.</p>
     </div>
 </div>
