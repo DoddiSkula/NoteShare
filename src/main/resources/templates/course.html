@@ -16,7 +16,7 @@
 
 <!-- Content -->
 <div class="content">
-    <div class="course-page">
+    <div class="course-title-section">
         <div class="container-large">
             <div class="flex">
                 <h1 class="course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
@@ -30,10 +30,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="course-page">
         <div class="file-section">
             <div class="container-large">
                 <h2>Notes</h2>
-                <div>
+                <div class="">
                     <div th:replace="fragments/fileList :: fileList"></div>
                 </div>
             </div>
@@ -47,6 +49,8 @@
             </a>
         </div>
     </div>
+
+
 </div>
 
 <!-- Footer -->

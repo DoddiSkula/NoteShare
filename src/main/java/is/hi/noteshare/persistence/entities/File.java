@@ -1,8 +1,5 @@
 package is.hi.noteshare.persistence.entities;
 
-import com.sun.istack.NotNull;
-import org.springframework.web.multipart.MultipartFile;
-import java.nio.file.Files;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -38,7 +35,6 @@ public class File {
     
     @Column(name = "data")
     private byte[] data;
-
 
     public File(){}
 

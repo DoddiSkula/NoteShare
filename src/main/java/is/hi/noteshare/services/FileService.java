@@ -10,4 +10,5 @@ public interface FileService {
     File save(File file);
     void delete(File file);
     List<File> findByCourse(long id);
+    List<File> findByUser(long id);
 }

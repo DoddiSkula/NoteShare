@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /*
@@ -41,6 +43,11 @@ public class CourseController {
     public String courseGET(@PathVariable("id") long id, Model model, HttpSession session) {
         Course course = courseService.findById(id);
         List<File> files = fileService.findByCourse(id);
+        Map<File, String> map = new HashMap<File, String>();
+        for(File file: files) {
+            User user = userService.findById(file.getUser());
+            map.put(file, user.getUsername());
+        }
 
         // get logged in user
         User userSession = (User) session.getAttribute("loggedInUser");
@@ -50,7 +57,7 @@ public class CourseController {
         }
 
         model.addAttribute("course", course);
-        model.addAttribute("files", files);
+        model.addAttribute("files", map);
 
         return "course";
     }

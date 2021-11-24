@@ -1,9 +1,11 @@
 package is.hi.noteshare.controllers;
 
 import is.hi.noteshare.persistence.entities.Course;
+import is.hi.noteshare.persistence.entities.File;
 import is.hi.noteshare.persistence.entities.School;
 import is.hi.noteshare.persistence.entities.User;
 import is.hi.noteshare.services.CourseService;
+import is.hi.noteshare.services.FileService;
 import is.hi.noteshare.services.SchoolService;
 import is.hi.noteshare.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /*
@@ -30,11 +34,13 @@ import java.util.Objects;
 public class UserController {
     private final UserService userService;
     private final SchoolService schoolService;
+    private final FileService fileService;
 
     @Autowired
-    public UserController(UserService userService, SchoolService schoolService){
+    public UserController(UserService userService, SchoolService schoolService, FileService fileService) {
         this.userService = userService;
         this.schoolService = schoolService;
+        this.fileService = fileService;
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -129,6 +135,14 @@ public class UserController {
                 model.addAttribute("loggedInUser", userSession);
                 model.addAttribute("isOwner", Objects.equals(userSession.getEmail(), user.getEmail()));
             }
+
+            List<File> files = fileService.findByUser(user.getId());
+            Map<File, String> map = new HashMap<File, String>();
+            for(File file: files) {
+                User user2 = userService.findById(file.getUser());
+                map.put(file, user2.getUsername());
+            }
+            model.addAttribute("files", map);
         }
         return "profile";
     }

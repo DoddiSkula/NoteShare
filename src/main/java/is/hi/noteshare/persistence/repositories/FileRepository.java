@@ -11,4 +11,5 @@ public interface FileRepository  extends JpaRepository<File, Long>{
     File findById(long id);
     List<File> findAll();
     List<File> findByCourse(long id);
+    List<File> findByUser(long id);
 }

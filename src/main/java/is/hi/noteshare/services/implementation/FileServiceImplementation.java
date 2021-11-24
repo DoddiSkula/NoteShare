@@ -39,4 +39,9 @@ public class FileServiceImplementation implements FileService{
     public List<File> findByCourse(long id) {
         return fileRepository.findByCourse(id);
     }
+
+    @Override
+    public List<File> findByUser(long id) {
+        return fileRepository.findByUser(id);
+    }
 }

@@ -13,6 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
     void delete(User user);
     User findByUsername(String username);
     List<User> findAll();
+    User findById(long id);
     @Modifying
     @Query(value = "INSERT INTO user_courses(user_id, course_id) VALUES (?1, ?2)", nativeQuery = true)
     @Transactional
