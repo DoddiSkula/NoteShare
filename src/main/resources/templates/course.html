@@ -18,14 +18,16 @@
 <div class="content">
     <div class="course-page">
         <div class="container-large">
-            <h1 class="course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
-            <div th:if="${loggedInUser}">
-                <form th:if="${!isFavourited}" id="favourite-form" th:action="@{/course/{id}/favourite(id=${course.id})}" method="post">
-                    <button class="splash-button" type="submit" form="favourite-form" value="Submit">Add to my courses</button>
-                </form>
-                <form th:if="${isFavourited}" id="removeFavourite-form" th:action="@{/course/{id}/remove(id=${course.id})}" method="post">
-                    <button class="splash-button" type="submit" form="removeFavourite-form" value="Submit">Remove from my courses</button>
-                </form>
+            <div class="flex">
+                <h1 class="course-title" th:text="${course.shortName} + ' - ' + ${course.longName}"></h1>
+                <div th:if="${loggedInUser}">
+                    <form th:if="${!isFavourited}" id="favourite-form" th:action="@{/course/{id}/favourite(id=${course.id})}" method="post">
+                        <button class="favourite-button grey" type="submit" form="favourite-form" value="Submit"></button>
+                    </form>
+                    <form th:if="${isFavourited}" id="removeFavourite-form" th:action="@{/course/{id}/remove(id=${course.id})}" method="post">
+                        <button class="favourite-button" type="submit" form="removeFavourite-form" value="Submit"></button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="file-section">
