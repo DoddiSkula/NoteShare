@@ -1,10 +1,8 @@
 package is.hi.noteshare.controllers;
 
-import is.hi.noteshare.persistence.entities.Course;
 import is.hi.noteshare.persistence.entities.File;
 import is.hi.noteshare.persistence.entities.School;
 import is.hi.noteshare.persistence.entities.User;
-import is.hi.noteshare.services.CourseService;
 import is.hi.noteshare.services.FileService;
 import is.hi.noteshare.services.SchoolService;
 import is.hi.noteshare.services.UserService;
@@ -65,15 +63,18 @@ public class UserController {
             return "redirect:/signup";
         }
 
+        // set user attributes
         user.setAdmin(false);
         user.setUsername(user.getEmail().split("@")[0]);
 
-        User exists = (User) userService.findByUsername(user.getUsername());
-        if(exists == null){
-            userService.save(user);
-        } else {
+        // check if user exits
+        User exists = userService.findByUsername(user.getUsername());
+        if(exists != null){
             return "redirect:/signup";
         }
+
+        // save user in db
+        userService.save(user);
 
         return "redirect:/login";
     }
@@ -87,6 +88,7 @@ public class UserController {
         }
 
         model.addAttribute("user", new User());
+
         return "login";
     }
 
@@ -123,28 +125,31 @@ public class UserController {
     public String profileGET(@PathVariable("username") String username, Model model, HttpSession session){
         // get user
         User user = userService.findByUsername(username);
-        if(user != null) {
-            School school = schoolService.findById(user.getSchoolId());
-            model.addAttribute("user", user);
-            model.addAttribute("myCourses", user.getCourses());
-            model.addAttribute("school", school);
+        if(user == null) { return "redirect:/"; }
 
-            // get logged in user
-            User userSession = (User) session.getAttribute("loggedInUser");
-            if (userSession != null) {
-                model.addAttribute("loggedInUser", userSession);
-                model.addAttribute("isOwner", Objects.equals(userSession.getEmail(), user.getEmail()));
-            }
+        // get users school
+        School school = schoolService.findById(user.getSchoolId());
 
-            // get files
-            List<File> files = fileService.findByUser(user.getId());
-            Map<File, String> map = new HashMap<File, String>();
-            for(File file: files) {
-                User user2 = userService.findById(file.getUser());
-                map.put(file, user2.getUsername());
-            }
-            model.addAttribute("files", map);
+        // get logged in user
+        User userSession = (User) session.getAttribute("loggedInUser");
+        if (userSession != null) {
+            model.addAttribute("loggedInUser", userSession);
+            model.addAttribute("isOwner", Objects.equals(userSession.getEmail(), user.getEmail()));
         }
+
+        // get files
+        List<File> files = fileService.findByUser(user.getId());
+        Map<File, String> map = new HashMap<File, String>();
+        for(File file: files) {
+            User user2 = userService.findById(file.getUser());
+            map.put(file, user2.getUsername());
+        }
+
+        model.addAttribute("user", user);
+        model.addAttribute("myCourses", user.getCourses());
+        model.addAttribute("school", school);
+        model.addAttribute("files", map);
+
         return "profile";
     }
 

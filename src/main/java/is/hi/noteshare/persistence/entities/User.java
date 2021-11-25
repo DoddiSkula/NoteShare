@@ -43,7 +43,6 @@ public class User {
         this.admin = admin;
     }
 
-
     public void setId(long id) { this.id = id; }
 
     public long getId() { return id; }

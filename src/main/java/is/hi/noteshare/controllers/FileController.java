@@ -59,6 +59,7 @@ public class FileController {
 
         User userSession = (User) session.getAttribute("loggedInUser");
 
+        // create new file from post body
         File uploadedFile = new File(new Date(System.currentTimeMillis()),
                 file.getTitle(),
                 file.getDescription(),
@@ -69,6 +70,7 @@ public class FileController {
                 file.getFileFormat().getBytes());
 
 
+        // save file to db
         fileService.save(uploadedFile);
 
         return "redirect:/course/{id}";

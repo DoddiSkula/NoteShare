@@ -4,71 +4,56 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "comments")
+@Table(name = "comments", schema = "public")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
-    private long Id;
+    private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private File file;
+    @Column(name = "file_id")
+    private long fileId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    @Column(name = "user_id")
+    private long userId;
 
-    private Date date;
-    private int userid;
+    @Column(name = "comment")
     private String text;
+
+    @Column(name = "likes")
+    private int likes;
 
     public Comment() {}
 
-    public Comment(File file, User user, Date date, int userid, String text){
-        this.file = file;
-        this.user = user;
-        this.date = date;
-        this.userid = userid;
+    public Comment(long fileId, long userId, String text, int likes){
+        this.fileId = fileId;
+        this.userId = userId;
         this.text = text;
+        this.likes = likes;
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
-    public void setID(long Id) {
-        this.Id = Id;
+    public void setID(long id) {
+        this.id = id;
     }
 
-    public File getFile() {
-        return file;
+    public long getFileId() {
+        return fileId;
     }
 
-    public void setFile(File file) {
-        this.file = file;
+    public void setFileId(long fileId) {
+        this.fileId = fileId;
     }
 
-    public User getUser() {
-        return user;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getText() {
@@ -79,4 +64,7 @@ public class Comment {
         this.text = text;
     }
 
+    public void setLikes(int likes) { this.likes = likes; }
+
+    public int getLikes() { return likes; }
 }

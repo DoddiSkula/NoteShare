@@ -43,6 +43,8 @@ public class CourseController {
     public String courseGET(@PathVariable("id") long id, Model model, HttpSession session) {
         Course course = courseService.findById(id);
         List<File> files = fileService.findByCourse(id);
+
+        // map username to each file
         Map<File, String> map = new HashMap<File, String>();
         for(File file: files) {
             User user = userService.findById(file.getUser());
@@ -70,6 +72,7 @@ public class CourseController {
         // get logged in user
         User userSession = (User) session.getAttribute("loggedInUser");
 
+        // add course to session list and db
         userSession.getCourses().add(course);
         userService.favourite(userSession.getId(), id);
 

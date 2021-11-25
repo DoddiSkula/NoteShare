@@ -37,7 +37,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(HttpSession session, Model model){
-        // fetch all data (possibly keep in session?)
+        // fetch all data
         List<Course> courses = courseService.findAll();
         List<School> schools = schoolService.findAll();
         List<Subject> subjects = subjectService.findAll();

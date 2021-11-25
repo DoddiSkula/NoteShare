@@ -1,7 +1,6 @@
 package is.hi.noteshare.persistence.entities;
 
 import javax.persistence.*;
-import java.nio.file.Files;
 import java.util.List;
 
 @Entity
