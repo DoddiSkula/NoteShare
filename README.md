@@ -9,11 +9,13 @@ It’s a win-win for everyone!
 ## Setup
 
 To run this project locally follow these steps:
-1. Create a [postgreSQL database](https://www.postgresql.org/download/) ``createdb NoteShare``
+1. Create a [postgreSQL](https://www.postgresql.org/download/) database
 2. Change settings in ``application.properties`` to match your postgreSQL configurations
-   1. ``spring.datasource.url=DATABASE_URL``
-   2. ``spring.datasource.username=POSTGRES_USERNAME``
-   3. ``spring.datasource.password=POSTGRES_PASSWORD``
+   ```
+   spring.datasource.url=DATABASE_URL
+   spring.datasource.username=POSTGRES_USERNAME
+   spring.datasource.password=POSTGRES_PASSWORD
+   ```
 3. Run ``NoteShareApplication.java``
 
 ## The Team
